@@ -80,7 +80,7 @@
 
 ## 4.系统架构
 
-！[image](https://github.com/lscLucienLee/Parallel-corpus-management-system/blob/main/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84.png)
+![image](https://github.com/lscLucienLee/Parallel-corpus-management-system/blob/main/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84.png)
   
 （系统架构图）
 
