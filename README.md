@@ -81,13 +81,12 @@
 
 ## 4.系统架构
 
-<img src="https://github.com/lscLucienLee/Parallel-corpus-management-system/blob/main/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84.png" width="600">
- 
-          （系统架构图）
+系统架构图：  
 
+
+<img src="https://github.com/lscLucienLee/Parallel-corpus-management-system/blob/main/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84.png" width="600">  
 
 本项目的系统架构主要分为两大部分，前端交互界面和后端功能实现。
-
 
 前端：主要包括
 - 界面层：Web端的交互界面的设计，能支持各项功能
