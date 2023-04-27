@@ -111,4 +111,4 @@
 - 翻译结果人工评价界面
 - 对齐界面
 
-（具体详见界面设计文档）
+[具体详见界面设计文档](https://github.com/lscLucienLee/Parallel-corpus-management-system/blob/main/%E7%95%8C%E9%9D%A2%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1.docx)
