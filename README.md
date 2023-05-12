@@ -6,17 +6,17 @@
 
 ​    项目负责人：
 
-陈怀宇 2801829435@qq.com 
+陈怀宇 2801829435@qq.com  github@:C0hy
 
 ​    成员列表：
 ​        
-1.李思成 lsclucienlee@gmail.com
+1.李思成 lsclucienlee@gmail.com  - github@:lscLucienLee
 ​        
-2.丁隽 1302554864@qq.com
+2.丁隽 1302554864@qq.com  - github@:djkun4864
 ​        
-3.严子涵 1115494135@qq.com
+3.严子涵 1115494135@qq.com  - github@:VielotYZH
 ​        
-4.赵展 1391766596@qq.com
+4.赵展 1391766596@qq.com  - github@:Extious
 
 ***
 
