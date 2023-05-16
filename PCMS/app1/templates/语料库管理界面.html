@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户界面</title>
+   <link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1-dist/css/bootstrap.css">
+   <style>
+       .navbar{
+        border-radius:0;
+        }
+       .bs-example{
+        width:1100px;
+         margin:auto auto;
+       }
+   </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                  data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand" >平行语料库管理系统</div>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+          <ul class="nav navbar-nav">
+          </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">主页</a></li>
+        <li><a href="#">登出</a></li>
+       <li><a href="#">返回上一步</a></li>
+      </ul>
+        </div></div>
+</nav>
+
+        <div style="height:50px"></div>
+ <div class="bs-example" data-example-id="table-within-panel">
+    <div class="panel panel-default">
+
+
+      <div class="panel-body" style="height: 200px">
+        <p>
+          <h3 style="text-align: center">欢迎使用平行语料管理系统</h3>
+        <div style="width:658px;margin:auto;text-align: center">我们的平行语料管理系统有创建、删除、过滤、查重、统计分析、翻译评价等多种功能，我们有自己的数据库可以保存
+        用户的语料数据，旨在提高用户们的体验，如果有任何使用过程中的建议，欢迎向我们反馈。</div>
+        </p>
+      </div>
+
+      <!-- Table -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th style="width: 180px">语料库名</th>
+            <th style="width: 200px">新建时间</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>
+              <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">浏览查询</button>
+              <button type="button" class="btn btn-default " style="width: 160px;background-color:#DCDCDC">修改语料库名</button>
+            <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">删除语料库</button>
+            <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">高级操作</button></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">浏览查询</button>
+              <button type="button" class="btn btn-default " style="width: 160px;background-color:#DCDCDC">修改语料库名</button>
+            <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">删除语料库</button>
+            <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">高级操作</button></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">浏览查询</button>
+              <button type="button" class="btn btn-default"  style="width: 160px;background-color:#DCDCDC">修改语料库名</button>
+            <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">删除语料库</button>
+            <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">高级操作</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+<div style="width: 1100px;height: 50px;margin-left:auto;margin-right:auto;margin-top:-17px"></div>
+<div style="width:900px;margin-left:auto;margin-right:auto;margin-top:100px;height: 35px">
+  <button type="button" class="btn btn-default " style="width: 200px;background-color:lightslategray">选择方式创建新语料库</button>
+  <button type="button" class="btn btn-default " style="width: 150px;background-color:lightslategray;margin-left: 100px">合并语料库</button>
+  <button type="button" class="btn btn-default " style="width: 150px;background-color:lightslategray;margin-left: 200px">拆分语料库</button>
+</div>
+<div style="width:840px;margin-left:auto;margin-right:auto;height:20px">
+   <input type="radio" name="n1" >手动输入
+
+</div>
+<div style="width:840px;margin-left:auto;margin-right:auto;height:20px">
+   <input type="radio" name="n1" >导入文件
+</div>
+
+
+
+
+
+
+  <script src="../static/js/jquery-3.6.4.js"></script>
+        <script src="../static/plugins/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
+  </body>
+</html>
