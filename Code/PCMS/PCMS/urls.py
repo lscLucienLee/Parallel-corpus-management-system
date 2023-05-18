@@ -17,6 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from app1 import views
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('login/', views.login),
+    path('user/', views.user),
+    path('user/add/', views.user_add),
+    path('user/modelformadd/', views.user_modelformadd),
+    path('user/delete/', views.user_delete),
+    path('user/<int:nid>/edit/', views.user_edit)
 ]
