@@ -10,7 +10,7 @@
 
 ​    成员列表：
 ​        
-1.李思成 lsclucienlee@gmail.com  - github@:lscLucienLee
+1.李思成 lsclucienlee@gmail.com  - github@:lscLucienLee ChengKyichi
 ​        
 2.丁隽 1302554864@qq.com  - github@:djkun4864
 ​        
