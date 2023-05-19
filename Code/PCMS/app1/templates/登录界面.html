@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>平行语料库登录界面</title>
-   <link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1-dist/css/bootstrap.css">
-   <style>
+    <link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1-dist/css/bootstrap.css">
+    <style>
        body{
         margin:0;
         padding:0;
@@ -75,40 +74,43 @@
 
 
           }
-   </style>
+
+    </style>
 </head>
 <body>
 <div class="container">
 
 
-<div class="header">
-   <div>平行语料库管理系统</div>
-</div>
-<div class="middle">
-    <div class="account">
-
-
-        <h2>用户登录</h2>
-        <form method="post" action="/login/">
-            {% csrf_token %}
-  <div class="form-group">
-    <label for="exampleInputEmail1">用户名</label>
-    <input type="text" class="form-control" id="exampleInputEmail1"  name="user"    placeholder="请输入用户名">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">密码</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" name="pwd"  placeholder="请输入密码">
-  </div>
-
-  <button type="submit" class="btn btn-primary" >登录</button>
-        <a href="/register/">
-            <button type="button" class="btn btn-primary">注册</button>
-        </a>
-            <span style="color:red">{{error_msg}}</span>
-</form>
+    <div class="header">
+        <div>平行语料库管理系统</div>
     </div>
+    <div class="middle">
+        <div class="account">
+
+
+            <h2>用户登录</h2>
+            <form method="post" action="/login/">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleInputEmail1">用户名</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="user"
+                           placeholder="请输入用户名">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">密码</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="pwd"
+                           placeholder="请输入密码">
+                </div>
+
+                <button type="submit" class="btn btn-primary">登录</button>
+                <a href="/register/">
+                    <button type="button" class="btn btn-primary">注册</button>
+                </a>
+                <span style="color:red">{{error_msg}}</span>
+            </form>
+        </div>
     </div>
-<div class="bottom"></div>
+    <div class="bottom"></div>
 </div>
 </body>
 </html>
