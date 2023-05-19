@@ -156,3 +156,4 @@ def user_modelformadd(request):
         return redirect("/user/")
     else:
         return render(request, 'user_modelformadd.html', {"form": form})
+
