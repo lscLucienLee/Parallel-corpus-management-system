@@ -60,9 +60,6 @@ class Usermodelformadd(forms.ModelForm):
     class Meta:
         model = models.Chy
         fields = ["name"]
-        # widgets = {
-        #   "name":forms.TextInput(attrs={"class":"form-control"}),
-        #   "create_time": forms.TextInput(attrs={"class": "form-control"}),
 
 
 def __init__(self, *args, **kwargs):
