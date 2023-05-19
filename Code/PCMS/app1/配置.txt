@@ -1,0 +1,31 @@
+pip install nltk
+import nltk
+nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('wordnet')
+mysql库
+pip install fast_align
+pip install pandas mysql-connector-python
+
+创建一个新的Django项目：
+BASH
+复制
+django-admin startproject myproject
+在myproject目录下创建一个新的应用：
+BASH
+复制
+cd myproject
+python manage.py startapp myapp
+在myapp目录下创建一个名为views.py的文件
+在myapp目录下创建一个名为urls.py的文件
+在myproject目录下的urls.py文件中，将您的应用添加到urlpatterns：
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("myapp/", include("myapp.urls")),
+]
+要运行Django项目，请在myproject目录下执行以下命令：
+
+python manage.py runserver
