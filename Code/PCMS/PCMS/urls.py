@@ -27,3 +27,4 @@ urlpatterns = [
     path('user/delete/', views.user_delete),
     path('user/<int:nid>/edit/', views.user_edit)
 ]
+
