@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django import forms
-from Code.PCMS.app1 import models
+from Code.PCMS.app import models
 import time
 
 

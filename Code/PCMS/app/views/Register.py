@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from Code.PCMS.app1 import models
+from Code.PCMS.app import models
 
 
 # Create your views here.

@@ -12,6 +12,42 @@
         width:1100px;
          margin:auto auto;
        }
+
+
+
+       .window1 .w1{
+         width:280px;
+         position: absolute;
+         height:110px;
+         right: 10px;
+         top:300px;
+         display: none;
+       }
+      .window1:hover .w1{
+      display: block;
+      }
+      .window2 .w2{
+         width:280px;
+         position: absolute;
+         height:110px;
+         right: 10px;
+         top:350px;
+         display: none;
+       }
+      .window2:hover .w2 {
+        display: block;
+      }
+      .window3 .w3{
+         width:280px;
+         position: absolute;
+         height:110px;
+         right: 10px;
+         top:400px;
+         display: none;
+       }
+      .window3:hover .w3{
+        display: block;
+      }
    </style>
 </head>
 <body>
@@ -32,9 +68,9 @@
           <ul class="nav navbar-nav">
           </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">主页</a></li>
-        <li><a href="#">登出</a></li>
-       <li><a href="#">返回上一步</a></li>
+              <li><a href="/manage/">主页</a></li>
+        <li><a href="/login/">登出</a></li>
+       <li><a href="/manage/">返回上一步</a></li>
       </ul>
         </div></div>
 </nav>
@@ -68,28 +104,60 @@
             <td>Mark</td>
             <td>Otto</td>
             <td>
-              <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">浏览查询</button>
+              <a href="/browse/" ><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">浏览查询</button>
+             </a>
               <button type="button" class="btn btn-default " style="width: 160px;background-color:#DCDCDC">修改语料库名</button>
             <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">删除语料库</button>
-            <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">高级操作</button></td>
+            <a href="#" class="window1"><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">高级操作</button>
+             <div class="w1">
+                <div class="panel panel-default">
+                   <div class="panel-heading">
+                   <h3 class="panel-title">高级操作</h3>
+              </div>
+             <div class="panel-body">包括过滤、去重、规范化、分析评价、翻译评价、对齐这些操作
+      </div>
+</div>
+             </div></a>
+            </td>
           </tr>
           <tr>
             <th scope="row">2</th>
             <td>Jacob</td>
             <td>Thornton</td>
-            <td><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">浏览查询</button>
+              <td><a href="/browse/"><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">浏览查询</button></a>
               <button type="button" class="btn btn-default " style="width: 160px;background-color:#DCDCDC">修改语料库名</button>
             <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">删除语料库</button>
-            <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">高级操作</button></td>
+           <a href="#" class="window2"><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">高级操作</button>
+             <div class="w2">
+                <div class="panel panel-default">
+                   <div class="panel-heading">
+                   <h3 class="panel-title">高级操作</h3>
+              </div>
+             <div class="panel-body">包括过滤、去重、规范化、分析评价、翻译评价、对齐这些操作
+      </div>
+</div>
+             </div>
+            </a></td>
           </tr>
           <tr>
             <th scope="row">3</th>
             <td>Larry</td>
             <td>the Bird</td>
-            <td><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">浏览查询</button>
+              <td><a><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">浏览查询</button></a>
               <button type="button" class="btn btn-default"  style="width: 160px;background-color:#DCDCDC">修改语料库名</button>
             <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">删除语料库</button>
-            <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">高级操作</button></td>
+           <a href="#" class="window3"><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">高级操作</button>
+            <div class="w3">
+                <div class="panel panel-default">
+                   <div class="panel-heading">
+                   <h3 class="panel-title">高级操作</h3>
+              </div>
+             <div class="panel-body">包括过滤、去重、规范化、分析评价、翻译评价、对齐这些操作
+      </div>
+</div>
+             </div>
+            </a>
+            </td>
           </tr>
         </tbody>
       </table>
