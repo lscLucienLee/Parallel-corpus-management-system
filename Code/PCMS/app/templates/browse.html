@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>浏览查询界面</title>
-  <link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1-dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../static/plugins/font-awesome-4.7.0/css/font-awesome.css">
   <style>
      .navbar{
@@ -43,16 +43,24 @@
    <h2>当前语料库:陈怀宇</h2>
 </div>
 <div style="width: 1100px;height:35px;margin-left:auto;margin-right: auto;margin-top:40px">
-<button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">添加平行语料</button>
+<a href="/add/"><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC;margin-left:28px ">添加平行语料</button></a>
 </div>
 
 <div style="width: 260px;height:35px;margin-left:218px;margin-top:-1px">
+    <div class="container" style="width:340px;margin-left:-15px">
+
 
     <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true" ></i></span>
-      <input type="text" class="form-control" placeholder="请输入你需要搜索的语料关键词" aria-describedby="basic-addon1">
-    </div>
+      <input type="text" class="form-control" placeholder="请输入你需要的语料关键词">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button"><i class="fa fa-search" aria-hidden="true" ></i>
+        </button>
+      </span>
+  </div>
 </div>
+
+
+
 <div class="bs-example" data-example-id="bordered-table">
     <table class="table table-bordered">
       <thead>
@@ -146,7 +154,7 @@
     </table>
   </div>
 
+</div>
 
-
-</body>
+ </body>
 </html>
