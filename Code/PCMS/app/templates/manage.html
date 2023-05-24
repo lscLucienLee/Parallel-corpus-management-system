@@ -105,46 +105,46 @@
             </thead>
             <tbody>
             {% for obj in CorpusInfo_list %}
-            <tr>
-                <th scope="row">{{ obj.id }}</th>
-                <td>{{ obj.name }}</td>
-                <td>{{ obj.create_time }}</td>
-                <td>
-                    <a href="/browse/">
-                        <button type="button" class="btn btn-default "
-                                style="width: 150px;background-color:#DCDCDC">
-                            浏览查询
-                        </button>
-                    </a>
-                    <a href="/correct/">
-                        <button type="button" class="btn btn-default "
-                                style="width: 160px;background-color:#DCDCDC">
-                            修改语料库名
-                        </button>
-                    </a>
-                    <a href="/delete_corpuses/?id={{ obj.id }}">
-                        <button type="button" class="btn btn-default "
-                                style="width: 150px;background-color:#DCDCDC">
-                            删除语料库
-                        </button>
-                    </a>
-                    <a href="/operate/" class="window1">
-                        <button type="button" class="btn btn-default "
-                                style="width: 150px;background-color:#DCDCDC">
-                            高级操作
-                        </button>
-                        <div class="w1">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">高级操作</h3>
-                                </div>
-                                <div class="panel-body">包括过滤、去重、规范化、分析评价、翻译评价、对齐这些操作
+                <tr>
+                    <th scope="row">{{ obj.id }}</th>
+                    <td>{{ obj.name }}</td>
+                    <td>{{ obj.create_time }}</td>
+                    <td>
+                        <a href="/browse/">
+                            <button type="button" class="btn btn-default "
+                                    style="width: 150px;background-color:#DCDCDC">
+                                浏览查询
+                            </button>
+                        </a>
+                        <a href="/correct/">
+                            <button type="button" class="btn btn-default "
+                                    style="width: 160px;background-color:#DCDCDC">
+                                修改语料库名
+                            </button>
+                        </a>
+                        <a href="/delete_corpuses/?id={{ obj.id }}">
+                            <button type="button" class="btn btn-default "
+                                    style="width: 150px;background-color:#DCDCDC">
+                                删除语料库
+                            </button>
+                        </a>
+                        <a href="/operate/" class="window1">
+                            <button type="button" class="btn btn-default "
+                                    style="width: 150px;background-color:#DCDCDC">
+                                高级操作
+                            </button>
+                            <div class="w1">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">高级操作</h3>
+                                    </div>
+                                    <div class="panel-body">包括过滤、去重、规范化、分析评价、翻译评价、对齐这些操作
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </td>
-            </tr>
+                        </a>
+                    </td>
+                </tr>
             {% endfor %}
             </tbody>
         </table>
