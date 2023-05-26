@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>高级操作</title>
-   <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
     <script src="../static/js/jQuery.js"></script>
     <script src="../static/plugins/bootstrap/js/bootstrap.js"></script>
-   <style>
+    <style>
        .navbar{
         border-radius:0;
         }
@@ -24,30 +24,33 @@
           /* 设置元素大小等样式 */
           width: 200px;
         }
-   </style>
+
+
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
+    <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                  data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <div class="navbar-brand" >平行语料库管理系统</div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand">平行语料库管理系统</div>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
-          <ul class="nav navbar-nav">
-          </ul>
+            <ul class="nav navbar-nav">
+            </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">主页</a></li>
-        <li><a href="#">登出</a></li>
-       <li><a href="#">返回上一步</a></li>
-      </ul>
-        </div></div>
+                <li><a href="#">主页</a></li>
+                <li><a href="#">登出</a></li>
+                <li><a href="#">返回上一步</a></li>
+            </ul>
+        </div>
+    </div>
 </nav>
 
 
@@ -55,69 +58,83 @@
     语料库名：陈怀宇
 </h3>
 <div class="panel panel-default" style="width:1200px;margin:auto auto">
-  <div class="panel-heading">过滤</div>
-  <div class="panel-body">
-    你选择过滤操作之后，系统会自动对语料库进行过滤，剔除其中有问题的平行语料，对已有的语料库进行更新。
-      <button type="button" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;float:right">过滤</button>
-  </div>
+    <div class="panel-heading">过滤</div>
+    <div class="panel-body">
+        你选择过滤操作之后，系统会自动对语料库进行过滤，剔除其中有问题的平行语料，对已有的语料库进行更新。
+        <a href="\">
+            <button type="button" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;float:right">
+                过滤
+            </button>
+        </a>
+    </div>
 </div>
 
 <div class="panel panel-default" style="width:1200px;margin:auto auto">
-  <div class="panel-heading">规范化</div>
-  <div class="panel-body">
-      你选择规范化操作后，系统会遍历语料库，对于语料中出现的字符统一更换为标准美式键盘下的输入字符。
-      <button type="button" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;float:right">规范化</button>
-  </div>
+    <div class="panel-heading">规范化</div>
+    <div class="panel-body">
+        你选择规范化操作后，系统会遍历语料库，对于语料中出现的字符统一更换为标准美式键盘下的输入字符。
+        <button type="button" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;float:right">
+            规范化
+        </button>
+    </div>
 </div>
 
 <div class="panel panel-default" style="width:1200px;margin:auto auto">
-  <div class="panel-heading">去重</div>
-  <div class="panel-body">
-    你选择去重后，系统通过匹配字符串操作来查找重复语料，并删除重复项、更新语料库。
-      <button type="button" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;float:right">去重</button>
-  </div>
+    <div class="panel-heading">去重</div>
+    <div class="panel-body">
+        你选择去重后，系统通过匹配字符串操作来查找重复语料，并删除重复项、更新语料库。
+        <button type="button" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;float:right">
+            去重
+        </button>
+    </div>
 </div>
 
 <div class="panel panel-default" style="width:1200px;margin:auto auto">
-  <div class="panel-heading">分析统计</div>
-  <div class="panel-body">
-      <div class="parent">
+    <div class="panel-heading">分析统计</div>
+    <div class="panel-body">
+        <div class="parent">
 
           <span class="child1" style="width:1000px">
               你选择分析统计操作后，系统会对该语料库中的所有词进行频次统计，展示词频最高的五个单词。同时可以统计总的平行语料数，并且展示结果。系统还会提供单词搜索框，搜索某单词的出现频率。
           </span>
-          <span style="width:150px;float:right">
-              <button id="analyzeId" type="button" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;float:right">分析统计</button>
+            <span style="width:150px;float:right">
+              <button id="analyzeId" type="button" class="btn btn-default dropdown-toggle"
+                      style="background-color:#DCDCDC;float:right">分析统计</button>
           </span>
-      </div>
+        </div>
 
-  </div>
+    </div>
 </div>
 
 <div class="panel panel-default" style="width:1200px;margin:auto auto">
-  <div class="panel-heading">翻译自动评价</div>
-  <div class="panel-body">
-    你选择翻译自动评价操作后，可以将机器翻译结果上传到系统中，系统会将本语料库作为参考，对两者进行比较分析，并给出自动评价结果。
-      <button type="button" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;float:right" >翻译自动评价</button>
-  </div>
+    <div class="panel-heading">翻译自动评价</div>
+    <div class="panel-body">
+        你选择翻译自动评价操作后，可以将机器翻译结果上传到系统中，系统会将本语料库作为参考，对两者进行比较分析，并给出自动评价结果。
+        <button type="button" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;float:right">
+            翻译自动评价
+        </button>
+    </div>
 </div>
 
 <div class="panel panel-default" style="width:1200px;margin:auto auto">
-  <div class="panel-heading">翻译人工评价</div>
-  <div class="panel-body">
-    你选择翻译人工评价操作后，可以将机器翻译结果上传到系统中，系统会将机器翻译的结果和本语料库的内容对照输出，人工可以依次给出评分，最终获得结果。
-      <button type="button" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;float:right">翻译人工评价</button>
-  </div>
+    <div class="panel-heading">翻译人工评价</div>
+    <div class="panel-body">
+        你选择翻译人工评价操作后，可以将机器翻译结果上传到系统中，系统会将机器翻译的结果和本语料库的内容对照输出，人工可以依次给出评分，最终获得结果。
+        <button type="button" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;float:right">
+            翻译人工评价
+        </button>
+    </div>
 </div>
 
 <div class="panel panel-default" style="width:1200px;margin:auto auto">
-  <div class="panel-heading">对齐</div>
-  <div class="panel-body">
-    系统自行进行平行语料的逐词对齐，然后人工可以做出修正。
-      <button type="button" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;float:right">对齐</button>
-  </div>
+    <div class="panel-heading">对齐</div>
+    <div class="panel-body">
+        系统自行进行平行语料的逐词对齐，然后人工可以做出修正。
+        <button type="button" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;float:right">
+            对齐
+        </button>
+    </div>
 </div>
-
 
 
 <div class="footer">
@@ -125,9 +142,5 @@
 </div>
 
 
-
-
-
-
-  </body>
+</body>
 </html>
