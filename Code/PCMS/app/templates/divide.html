@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拆分界面</title>
+   <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
+   <style>
+       .navbar{
+        border-radius:0;
+        }
+       .bs-example{
+        width:800px;
+         margin-left:auto ;
+           margin-right: auto;
+           margin-top: 150px;
+
+       }
+
+       .bottom{
+           margin-top:80px;
+           height:40px;
+           color:slategray;
+           margin-left:500px ;
+           line-height: 40px;
+         font-size:15px;
+       }
+       .show1{
+         height:40px;
+           color:slategray;
+           margin-left:500px ;
+           line-height: 40px;
+         font-size:15px;
+
+       }
+       .show2{
+         height:40px;
+           color:slategray;
+           margin-left:500px ;
+           line-height: 40px;
+         font-size:15px;
+
+       }
+       .show3{
+         height:40px;
+           color:slategray;
+           margin-left:500px ;
+           line-height: 40px;
+         font-size:15px;
+
+       }
+       .hide{
+         display: none;
+       }
+       .button {
+           margin-left: auto;
+           margin-right: auto;
+           width: 80px;
+           height: 25px;
+
+       }
+
+       </style>
+</head>
+<body>
+   <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+
+
+          <div class="navbar-brand" >平行语料库管理系统</div>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+          <ul class="nav navbar-nav">
+          </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/manage/">主页</a></li>
+        <li><a href="/login/">登出</a></li>
+       <li><a href="#">返回上一步</a></li>
+      </ul>
+        </div></div>
+</nav>
+
+
+
+
+  <div class="bs-example" data-example-id="bordered-table" >
+    <table class="table table-bordered" style="height: 180px">
+      <thead>
+        <tr>
+          <th style="width:40px">#</th>
+          <th style="width:320px;text-align: center">语料库名</th>
+          <th style="width:320px;text-align: center ">创建时间</th>
+          <th style="width:120px;text-align: center ">是否选择合并</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td style="text-align: center">Mark</td>
+          <td style="text-align: center">Otto</td>
+          <td>
+              <input type="radio" name="n1" style="margin-left: 40px">
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td style="text-align: center">Jacob</td>
+          <td style="text-align: center">Thornton</td>
+          <td>
+               <input type="radio" name="n1" style="margin-left: 40px">
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td style="text-align: center">Larry</td>
+          <td style="text-align: center">the Bird</td>
+          <td>
+               <input type="radio" name="n1" style="margin-left: 40px">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <nav aria-label="...">
+      <ul class="pagination pagination-lg" style="margin-left: 598px;margin-top:-20px">
+        <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+      </ul>
+    </nav>
+  <div class="bottom">
+     拆分为<select onchange="ShowImage(this);" id="status" style="width:70px;text-align: center">
+    <option value="0">请选择</option>
+    <option value="1">2</option>
+    <option value="2">3</option>
+    <option value="3">4</option>
+  </select>
+    个语料库，比例为：<input type="text" style="width:40px;height:25px">
+    <span style="margin-left: 50px">各个名称为：
+    <input type="text" style="width:200px;height:25px" placeholder="请输入语料库名称"></span>
+  </div>
+   <div class="show1 hide" id="image1">
+     <input type="text" style="width:40px;height:25px;margin-left: 254px">
+     <input type="text" style="width:200px;height:25px;margin-left: 145px" placeholder="请输入语料库名称">
+   </div>
+   <div class="show2 hide" id="image2">
+     <input type="text" style="width:40px;height:25px;margin-left: 254px">
+     <input type="text" style="width:200px;height:25px;margin-left: 145px" placeholder="请输入语料库名称">
+   </div>
+   <div class="show3 hide" id="image3">
+     <input type="text" style="width:40px;height:25px;margin-left: 254px">
+     <input type="text" style="width:200px;height:25px;margin-left: 145px" placeholder="请输入语料库名称">
+   </div>
+
+   <div class="button">
+<button type="button" class="btn btn-default " style="background-color: #DCDCDC;position: fixed;top:750px;left:700px" >拆分语料库</button>
+   </div>
+ <script src="../static/js/jquery-3.6.4.js"></script>
+        <script src="../static/plugins/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
+   <script>
+     function ShowImage(self){
+       if($("#status").val()==1)
+       {$("#image1").removeClass("hide");
+       $("#image2").addClass("hide");
+       $("#image3").addClass("hide");
+       }
+       else if($("#status").val()==2)
+       {$("#image1").removeClass("hide");
+       $("#image2").removeClass("hide");
+       $("#image3").addClass("hide");}
+       else if($("#status").val()==3)
+       {
+           $("#image1").removeClass("hide");
+           $("#image2").removeClass("hide");
+           $("#image3").removeClass("hide");
+
+       }
+
+
+     }
+
+
+
+
+
+
+
+   </script>
+</body>
+</html>
