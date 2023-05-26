@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分析统计</title>
+   <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
+  <script src="../static/js/jQuery.js"></script>
+  <script src="../static/js/analyze.js"></script>
+  <script src="../static/plugins/bootstrap/js/bootstrap.js"></script>
+  <style>
+    .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    .borderText {
+    border:1px solid rgb(108, 117, 125);
+    padding:8px;
+    border-radius: 6px;
+    color: rgb(108, 117, 125);
+    font-family: Inter;
+    font-size: 14px;
+    }
+    table,tr,td,th {
+    border:1px solid rgb(108, 117, 125);
+    color: rgb(108, 117, 125);
+    font-family: Inter;
+    font-size: 14px;
+    text-align: center; /* 将单元格中的文本水平居中 */
+    }
+    td, tr, th {
+      vertical-align: middle; /* 将单元格中的内容垂直居中 */
+    }
+    .btn btn-default:hover .panel panel-default{
+    visibility:visible;
+    }
+
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                  data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand" >平行语料库管理系统</div>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+          <ul class="nav navbar-nav">
+          </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">主页</a></li>
+        <li><a href="#">登出</a></li>
+       <li><a href="#">返回上一步</a></li>
+      </ul>
+        </div></div>
+</nav>
+
+<h3 style="margin-left:20px;color: rgb(0, 0, 0);font-family: Inter;font-size: 30px;font-weight: 800;">
+    语料库名：陈怀宇
+</h3>
+
+<div class="container" style="">
+  <div >
+  <div style="width:500px">
+    <div class="input-group">
+      <input type="text" class="form-control" name="word" placeholder="请输入要查询的原文或译文中的词">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" onclick="frequency()">查询词频</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+</div>
+
+<div class="panel panel-default" style="position:absolute;top:80px;width:200px;margin-left:75%;display:inline-block;visibility:hidden">
+  <div class="panel-heading">查询词频</div>
+  <div class="panel-body">
+    单词出现的次数
+  </div>
+</div>
+
+
+<div class="container" style="width: 294px;height: 38px;margin-top:40px;margin-bottom:40px;">
+
+  <div id="word" class="borderText">
+      已经输入的词
+  </div>
+  <div style="color: rgb(108, 117, 125);font-family: Inter;font-size: 14px;">
+      词频为：
+  </div>
+  <div class="borderText" style="padding-left:30px;padding-right:30px;">
+      词频
+  </div>
+
+</div>
+
+
+
+<div class="container" style="width: 900px;height: 38px;margin-top:150px;margin-bottom:40px;">
+
+  <div class="borderText" style="padding-left:200px;padding-right:200px;">
+      一共有
+    <span>
+      10
+    </span>
+      条语料
+  </div>
+
+</div>
+
+<div class="container" style="width: 900px;height: 38px;margin-top:150px;margin-bottom:40px;">
+
+  <table class="table table-bordered">
+    <thead>
+    <tr><th colspan="4">词频最高的五对单词</th></tr>
+    </thead>
+    <thead>
+      <tr> <th>排名</th> <th>原文</th> <th>译文</th> <th>词频</th></tr>
+    </thead>
+    <tbody>
+      <tr> <td>1</td> <td>陈怀宇</td> <td>Chen Huaiyu</td> <td>153</td> </tr>
+      <tr> <td>2</td> <td>陈怀宇</td> <td>Chen Huaiyu</td> <td>153</td> </tr>
+      <tr> <td>3</td> <td>陈怀宇</td> <td>Chen Huaiyu</td> <td>153</td> </tr>
+      <tr> <td>4</td> <td>陈怀宇</td> <td>Chen Huaiyu</td> <td>153</td> </tr>
+      <tr> <td>5</td> <td>陈怀宇</td> <td>Chen Huaiyu</td> <td>153</td> </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+
+</div>
+
+  <script>
+    hover();
+  </script>
+
+</body>
+</html>

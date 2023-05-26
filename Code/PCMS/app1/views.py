@@ -10,7 +10,7 @@ from readdata import IDBtoCSVConverter
 from filter import Corpusfilter
 from remove import CorpusRemover
 from normalize import CorpusNormalizer
-# from browser_searcher import CorpusBrowser, CorpusSearcher
+from browser_searcher import CorpusBrowser, CorpusSearcher
 from analyzer import CorpusAnalyzer
 from auto_evaluation import autoTranslationEvaluator
 from manul_evaluation import ManualEvaluation
@@ -51,10 +51,10 @@ def process_request(request):
     #这个需求不用我解决
     # elif order == "browse":
     #     browser = CorpusBrowser(output_csv)
-    # elif order == "search":
-    #     searcher = CorpusSearcher(output_csv)
-    #     searched = searcher.search(other)
-    #     csv_to_mysql.import_csv_to_mysql(data=searched)
+    elif order == "search":
+        searcher = CorpusSearcher(output_csv)
+        searched = searcher.search(other)
+        csv_to_mysql.import_csv_to_mysql(data=searched)
     elif order == "analyze":
         analyzer = CorpusAnalyzer(output_csv)
         top = analyzer.analyze_corpus()
@@ -136,6 +136,9 @@ class Usermodelformadd(forms.ModelForm):
     class Meta:
         model = models.Chy
         fields = ["name"]
+        # widgets = {
+        #   "name":forms.TextInput(attrs={"class":"form-control"}),
+        #   "create_time": forms.TextInput(attrs={"class": "form-control"}),
 
 
 def __init__(self, *args, **kwargs):
@@ -156,4 +159,3 @@ def user_modelformadd(request):
         return redirect("/user/")
     else:
         return render(request, 'user_modelformadd.html', {"form": form})
-
