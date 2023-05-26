@@ -1,37 +1,55 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>添加界面</title>
-    <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
-    <style>
-        .navbar{
+   <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
+   <style>
+       .navbar{
         border-radius:0;
         }
-        .header-left{
-            margin-top:50px;
-            width:500px;
-            margin-left:268px;
-            float:left;
-        }
-        .header-right{
-            margin-top:50px;
-            width:500px;
-            float:left;
-        }
-        .button{
-            margin-top: 50px;
 
-            height:35px;
-            margin-right: auto;
-            margin-left: auto;
-            width: 60px;
 
-        }
-    </style>
+       .middle{
+        height:600px;
+        width:1514px;
+        margin-left:-16px;
+
+       }
+       .middle .account{
+       height:320px;
+       width:900px;
+       border: 1px solid grey;
+       margin-top:170px;
+       margin-left:auto;
+           margin-right:auto;
+       padding:40px;
+           border-radius: 15px;
+       }
+
+       .account h3{
+
+
+          text-align:center;
+           font-size:25px;
+         height:80px;
+         margin-top:-10px;
+
+
+
+
+          }
+   </style>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
+
+
+
+
+
+
+  <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
 
@@ -54,31 +72,29 @@
       </ul>
         </div></div>
 </nav>
+<div class="middle">
+    <div class="account">
 
-<div style="margin-left:30px">
-   <h2>当前语料库:陈怀宇</h2>
+
+        <h3>语料添加</h3>
+        <form>
+
+  <div class="form-group">
+    <label>原文</label>
+    <input type="text" class="form-control"     placeholder="">
+  </div>
+  <div class="form-group">
+    <label >译文</label>
+    <input type="password" class="form-control"  placeholder="">
+  </div>
+
+  <button type="submit" class="btn btn-primary" style="margin-left:370px">添加</button>
+
+
+</form>
+    </div>
+    </div>
+<div class="bottom"></div>
 </div>
-
-   <div class="panel panel-default header-left">
-  <div class="panel-heading">
-    <h3 class="panel-title" style="text-align: center">原文</h3>
-  </div>
-  <div class="panel-body" style="height:410px">
-       <textarea style="height:400px;width:480px;margin-top:-10px;font-size:20px;margin-left:-5px"></textarea>
-  </div>
-   </div>
-
-<div class="panel panel-default header-right">
-  <div class="panel-heading">
-    <h3 class="panel-title" style="text-align: center">译文</h3>
-  </div>
-  <div class="panel-body" style="height: 410px" >
-       <textarea style="height:400px;width:480px;margin-top:-10px;font-size:20px;margin-left:-5px"></textarea>
-  </div>
-   </div>
-<div style="clear:both"></div>
- <div class="button">
- <button type="button" class="btn btn-default" style="background-color: lightslategray">添加</button>
- </div>
 </body>
 </html>

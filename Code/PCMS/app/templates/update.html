@@ -2,83 +2,88 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>更新界面</title>
-    <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
-    <style>
-        .navbar{
+    <title>创建语料库界面(手动输入)</title>
+  <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
+  <style>
+    .navbar{
         border-radius:0;
         }
-        .header-left{
-            margin-top:50px;
-            width:500px;
-            margin-left:268px;
-            float:left;
-        }
-        .header-right{
-            margin-top:50px;
-            width:500px;
-            float:left;
-        }
-        .button{
-            margin-top: 50px;
+    .header {
+        margin-top: 80px;
+        height: 40px;
+    }
+    .middle{
 
-            height:35px;
-            margin-right: auto;
-            margin-left: auto;
-            width: 60px;
+        height:120px;
+        margin-top:160px;
+    }
+    .heading{
+        margin-left: auto;
+        margin-right:auto;
+        width:900px
 
-        }
-    </style>
+    }
+    .button{
+        width:600px;
+        height:35px;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+  </style>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
 
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                  data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+
           <div class="navbar-brand" >平行语料库管理系统</div>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
           <ul class="nav navbar-nav">
           </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">主页</a></li>
-        <li><a href="#">登出</a></li>
+              <li><a href="/manage/">主页</a></li>
+        <li><a href="/login/">登出</a></li>
        <li><a href="#">返回上一步</a></li>
       </ul>
         </div></div>
 </nav>
 
-<div style="margin-left:30px">
-   <h2>当前语料库:陈怀宇</h2>
+     <div class="header">
+         <div style="margin-left: 580px;font-size:15px;line-height:40px;float: left">语料库名称</div>
+         <div>
+             <input type="text" placeholder="请输入" style="font-size:16px;width:220px;margin-top:3px ;line-height:25px;margin-left: 10px">
+         </div>
+     </div>
+
+  <div class="middle">
+        <div class="panel panel-default heading">
+  <div class="panel-heading ">
+    <h3 class="panel-title" style="text-align: center">平行语料</h3>
+  </div></div>
+        <div class="panel panel-default heading" style="margin-top:-20px;width:450px;margin-left:318px;float: left">
+            <div class="panel-body" style="height:50px ">
+   <input type="text" style="width: 440px;line-height:34px;margin-top:-8px;margin-left:-10px">
+            </div></div>
+
+            <div class="panel panel-default heading" style="margin-top:-20px;width:450px;float: left">
+            <div class="panel-body" style="height:50px ">
+   <input type="text" style="width: 440px;line-height:34px;margin-top:-8px;margin-left:-10px">
+  </div>
+
 </div>
-
-   <div class="panel panel-default header-left">
-  <div class="panel-heading">
-    <h3 class="panel-title" style="text-align: center">原文</h3>
-  </div>
-  <div class="panel-body" style="height:410px">
-       <textarea style="height:400px;width:480px;margin-top:-10px;font-size:20px;margin-left:-5px"></textarea>
-  </div>
-   </div>
-
-<div class="panel panel-default header-right">
-  <div class="panel-heading">
-    <h3 class="panel-title" style="text-align: center">译文</h3>
-  </div>
-  <div class="panel-body" style="height: 410px" >
-       <textarea style="height:400px;width:480px;margin-top:-10px;font-size:20px;margin-left:-5px"></textarea>
-  </div>
-   </div>
-<div style="clear:both"></div>
+    </div>
+   <div style="clear: both"></div>
  <div class="button">
- <button type="button" class="btn btn-default" style="background-color: lightslategray">更新</button>
+ <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC;float: left">上一条</button>
+     <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC;float: right">下一条</button>
  </div>
-</body>
+
+ <div style="width:100px;height:35px;margin-left: auto;margin-right: auto;margin-top:120px">
+     <button type="button" class="btn btn-success " style="width: 100px;">创建</button>
+ </div>
+
+ </body>
 </html>
