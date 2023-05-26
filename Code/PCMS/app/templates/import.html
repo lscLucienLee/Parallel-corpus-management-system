@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建语料库界面(文件导入)</title>
+   <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
+    <script src="../static/js/jQuery.js"></script>
+    <script >
+      function getfile(){
+  var fileInput = document.getElementById('file');
+  var fileName = fileInput.files[0].name;
+  var fileLabel = document.getElementById('filename');
+  fileLabel.innerHTML = fileName;
+}
+    </script>
+    <script src="../static/plugins/bootstrap/js/bootstrap.js"></script>
+  <style>
+    .container {
+       position:relative;
+    }
+    .borderText {
+      border:1px solid rgb(108, 117, 125);
+      padding:8px;
+      border-radius: 6px;
+      color: rgb(108, 117, 125);
+      font-size: 14px;
+    }
+    .header{
+        margin-top: 120px;
+    }
+
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                  data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand" >平行语料库管理系统</div>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+          <ul class="nav navbar-nav">
+          </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">主页</a></li>
+        <li><a href="#">登出</a></li>
+       <li><a href="#">返回上一步</a></li>
+      </ul>
+        </div></div>
+</nav>
+
+   <div class="header">
+         <div style="margin-left: 580px;font-size:15px;line-height:40px;float: left">语料库名称</div>
+         <div>
+             <input type="text" placeholder="请输入" style="font-size:16px;width:180px;margin-top:7px ;line-height:20px;margin-left: 10px">
+         </div>
+     </div>
+
+<div class="container" style="width: 707px;height: 300px;margin-top:40px;margin-bottom:40px;margin-top:100px">
+    <div style="color: rgb(108, 117, 125);font-family: Inter;font-size: 14px;">
+        上传文件
+    </div>
+    <form action="" method="post" enctype="multipart/form-data">
+        <div id="filename" style="height:168px;width:677px;border:1px solid rgb(108, 117, 125);border-radius: 6px;">
+
+        </div>
+
+            <label for="file" style="background-color:#DCDCDC;margin-top:10px;margin-left: 300px" class="borderText">
+                导入文件
+                <input type="file" id="file" name="file" style="display:none" onchange="getfile()">
+            </label>
+    </form>
+</div>
+
+</body>
+</html>
