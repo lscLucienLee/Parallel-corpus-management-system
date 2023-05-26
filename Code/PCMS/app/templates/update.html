@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>更新界面</title>
+    <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
+    <style>
+        .navbar{
+        border-radius:0;
+        }
+        .header-left{
+            margin-top:50px;
+            width:500px;
+            margin-left:268px;
+            float:left;
+        }
+        .header-right{
+            margin-top:50px;
+            width:500px;
+            float:left;
+        }
+        .button{
+            margin-top: 50px;
+
+            height:35px;
+            margin-right: auto;
+            margin-left: auto;
+            width: 60px;
+
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                  data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand" >平行语料库管理系统</div>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+          <ul class="nav navbar-nav">
+          </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">主页</a></li>
+        <li><a href="#">登出</a></li>
+       <li><a href="#">返回上一步</a></li>
+      </ul>
+        </div></div>
+</nav>
+
+<div style="margin-left:30px">
+   <h2>当前语料库:陈怀宇</h2>
+</div>
+
+   <div class="panel panel-default header-left">
+  <div class="panel-heading">
+    <h3 class="panel-title" style="text-align: center">原文</h3>
+  </div>
+  <div class="panel-body" style="height:410px">
+       <textarea style="height:400px;width:480px;margin-top:-10px;font-size:20px;margin-left:-5px"></textarea>
+  </div>
+   </div>
+
+<div class="panel panel-default header-right">
+  <div class="panel-heading">
+    <h3 class="panel-title" style="text-align: center">译文</h3>
+  </div>
+  <div class="panel-body" style="height: 410px" >
+       <textarea style="height:400px;width:480px;margin-top:-10px;font-size:20px;margin-left:-5px"></textarea>
+  </div>
+   </div>
+<div style="clear:both"></div>
+ <div class="button">
+ <button type="button" class="btn btn-default" style="background-color: lightslategray">更新</button>
+ </div>
+</body>
+</html>

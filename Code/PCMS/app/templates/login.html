@@ -1,15 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>平行语料库注册界面</title>
-   <link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1-dist/css/bootstrap.css">
-   <style>
+    <title>平行语料库登录界面</title>
+    <base href="/">
+    <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
+    <style>
        body{
         margin:0;
         padding:0;
         }
+
        .container{
        height:840px;
        width:1514px;
@@ -21,7 +22,6 @@
         .header{
     width:1510px;
     height: 80px;
-
     border-top-left-radius:20px;
     border-top-right-radius:20px;
     background: lightslategray;
@@ -30,17 +30,13 @@
  }
         .header div{
           font-size:35px;
-
             text-align: center;
             background: lightgray;
             line-height: 80px;
-
             height:80px;
             border-top-left-radius:20px;
             border-top-right-radius:20px;
             border-bottom: 1px solid grey;
-
-
           }
        .middle{
         height:500px;
@@ -67,47 +63,44 @@
        border-bottom-right-radius:20px;
        }
        .account h2{
-
-
           text-align:center;
            font-size:30px;
-
-
-
           }
-   </style>
+
+    </style>
 </head>
 <body>
 <div class="container">
-
-
-<div class="header">
-   <div>平行语料库管理系统</div>
-</div>
-<div class="middle">
-    <div class="account">
-
-
-        <h2>用户注册</h2>
-        <form method="post" action="/login/">
-            {% csrf_token %}
-  <div class="form-group">
-    <label for="exampleInputEmail1">用户名</label>
-    <input type="text" class="form-control" id="exampleInputEmail1"  name="user"    placeholder="请输入用户名">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">密码</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" name="pwd"  placeholder="请输入密码">
-  </div>
-<a href="/login/">
-  <button type="button" class="btn btn-primary">注册</button>
-</a>
-
-
-</form>
+    <div class="header">
+        <div>平行语料库管理系统</div>
     </div>
+    <div class="middle">
+        <div class="account">
+            <h2>用户登录</h2>
+            <form method="post" novalidate>
+                {% csrf_token %}
+                <div class="form-group">
+                   <label for="exampleInputEmail1">用户名</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="name"
+                           placeholder="请输入用户名">
+                    <div style="color:red">{{ name_error }}</div>
+                </div>
+                <div class="form-group">
+                    <label>密码</label>
+                     <input type="password" class="form-control" id="exampleInputPassword1" name="pwd"
+                           placeholder="请输入密码">
+                    <div style="color:red">{{ pwd_error }}</div>
+                </div>
+                <button type="submit" class="btn btn-primary">登录</button>
+                <a href="/register/">
+                    <button type="button" class="btn btn-primary">注册</button>
+                </a>
+            </form>
+        </div>
     </div>
-<div class="bottom"></div>
+    <div class="bottom"></div>
 </div>
+<script src="static/js/jQuery.js"></script>
+<script src="static/plugins/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
