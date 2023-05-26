@@ -52,7 +52,3 @@ class CSVToMySQL:
             self.close_db_connection(connection)
             print("CSV data imported to MySQL successfully")
 
-
-
-
-
