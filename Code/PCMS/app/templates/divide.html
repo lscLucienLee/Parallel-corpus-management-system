@@ -32,10 +32,11 @@
          font-size:15px;
 
        }
-
-       .hide{
-         display: none;
+       .hidden{
+           display: none;
        }
+
+
        .button {
            margin-left: auto;
            margin-right: auto;
@@ -128,15 +129,15 @@
     <span style="margin-left: 50px">各个名称为：
     <input type="text" style="width:200px;height:25px" placeholder="请输入语料库名称"></span>
   </div>
-   <div class="show hide" id="image1">
+   <div class="show hidden" id="image1">
      <input type="text" style="width:40px;height:25px;margin-left: 254px">
      <input type="text" style="width:200px;height:25px;margin-left: 145px" placeholder="请输入语料库名称">
    </div>
-   <div class="show hide" id="image2">
+   <div class="show hidden" id="image2">
      <input type="text" style="width:40px;height:25px;margin-left: 254px">
      <input type="text" style="width:200px;height:25px;margin-left: 145px" placeholder="请输入语料库名称">
    </div>
-   <div class="show hide" id="image3">
+   <div class="show hidden" id="image3">
      <input type="text" style="width:40px;height:25px;margin-left: 254px">
      <input type="text" style="width:200px;height:25px;margin-left: 145px" placeholder="请输入语料库名称">
    </div>
@@ -149,33 +150,28 @@
    <script>
      function ShowImage(self){
        if($("#status").val()==1)
-       {$("#image1").removeClass("hide");
-       $("#image2").addClass("hide");
-       $("#image3").addClass("hide");
+       {$("#image1").removeClass("hidden");
+       $("#image2").addClass("hidden");
+       $("#image3").addClass("hidden");
        }
        else if($("#status").val()==2)
-       {$("#image1").removeClass("hide");
-       $("#image2").removeClass("hide");
-       $("#image3").addClass("hide");}
+       {$("#image1").removeClass("hidden");
+       $("#image2").removeClass("hidden");
+       $("#image3").addClass("hidden");}
        else if($("#status").val()==3)
        {
-           $("#image1").removeClass("hide");
-           $("#image2").removeClass("hide");
-           $("#image3").removeClass("hide");}
+           $("#image1").removeClass("hidden");
+           $("#image2").removeClass("hidden");
+           $("#image3").removeClass("hidden");}
        else if($("#status").val()==0)
        {
-           $("#image1").addClass("hide");
-           $("#image2").addClass("hide");
-           $("#image3").addClass("hide");
+           $("#image1").addClass("hidden");
+           $("#image2").addClass("hidden");
+           $("#image3").addClass("hidden");
        }
 
 
      }
-
-
-
-
-
 
 
    </script>
