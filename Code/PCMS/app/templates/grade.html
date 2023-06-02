@@ -4,10 +4,13 @@
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>翻译人工打分</title>
     <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
-  <script src="../static/js/jQuery.js"></script>
-  <script src="../static/js/analyze.js"></script>
-  <script src="../static/plugins/bootstrap/js/bootstrap.js"></script>
-  <script>
+    <script src="../static/js/jQuery.js"></script>
+    <script src="../static/plugins/bootstrap/js/bootstrap.js"></script>
+
+    <script>
+
+    </script>
+    <script>
     $("#hoverId").hover(
       function() {
         $("#panelId").addClass("view");
@@ -16,9 +19,10 @@
         $("#panelId").removeClass("view");
       }
     );
-</script>
+    </script>
     <style>
-
+    page_li{
+    }
     table,tr,td,th {
     border:1px solid rgb(108, 117, 125);
     color: rgb(108, 117, 125);
@@ -39,155 +43,185 @@
     }
     .navbar{
         border-radius:0;
-        }
+    }
+
+
     </style>
 </head>
 <body>
 <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
+    <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                  data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <div class="navbar-brand" >平行语料库管理系统</div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand">平行语料库管理系统</div>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
-          <ul class="nav navbar-nav">
-          </ul>
+            <ul class="nav navbar-nav">
+            </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">主页</a></li>
-        <li><a href="#">登出</a></li>
-       <li><a href="#">返回上一步</a></li>
-      </ul>
-        </div></div>
+                <li><a href="#">主页</a></li>
+                <li><a href="#">登出</a></li>
+                <li><a href="#">返回上一步</a></li>
+            </ul>
+        </div>
+    </div>
 </nav>
 
 <h3 style="margin-left:20px;color: rgb(0, 0, 0);font-family: Inter;font-size: 30px;font-weight: 800;">
-    语料库名：陈怀宇
+    当前语料库：陈怀宇
 </h3>
-
-
 
 
 <div class="container" style="width: 900px;height: 38px;margin-top:150px;margin-bottom:40px;">
 
-  <table class="table table-bordered">
-    <thead>
-      <tr> <th>序号</th> <th>原文</th> <th>语料库参考译文</th> <th>机器翻译译文</th> <th id="hoverId">打分</th></tr>
-    </thead>
-    <tbody>
-      <tr> <td>1</td> <td>陈怀宇</td> <td>Chen Huaiyu</td> <td>Chen Huaiyu</td>
-        <td>
-          <select name="1">
-            <option value="0">打分</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-        </td> </tr>
-      <tr> <td>2</td> <td>陈怀宇</td> <td>Chen Huaiyu</td> <td>Chen Huaiyu</td>
-        <td>
-          <select name="2">
-            <option value="0">打分</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-        </td>
-      </tr>
-      <tr> <td>3</td> <td>陈怀宇</td> <td>Chen Huaiyu</td> <td>Chen Huaiyu</td>
-        <td>
-          <select name="3">
-            <option value="0">打分</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-        </td>
-      </tr>
-      <tr> <td>4</td> <td>陈怀宇</td> <td>Chen Huaiyu</td> <td>Chen Huaiyu</td>
-        <td>
-          <select name="4">
-            <option value="0">打分</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-        </td>
-      </tr>
-      <tr> <td>5</td> <td>陈怀宇</td> <td>Chen Huaiyu</td> <td>Chen Huaiyu</td>
-        <td>
-          <select name="5">
-            <option value="0">打分</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-        </td>
-      </tr>
-    <tr>
-      <td colspan="5">
-        <nav aria-label="Page navigation" style="padding:0;display: flex;justify-content: center;margin-top:0;margin-bottom:0;">
-          <ul class="pagination" style="margin-top:0;margin-bottom:0;">
-            <li>
-              <a href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>原文</th>
+            <th>语料库参考译文</th>
+            <th>机器翻译译文</th>
+            <th id="hoverId">打分</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--        <tr>
+                    <td>1</td>
+                    <td>陈怀宇</td>
+                    <td>Chen Huaiyu</td>
+                    <td>Chen Huaiyu</td>
+                    <td>
+                        <select name="1">
+                            <option value="0">打分</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>陈怀宇</td>
+                    <td>Chen Huaiyu</td>
+                    <td>Chen Huaiyu</td>
+                    <td>
+                        <select name="2">
+                            <option value="0">打分</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>陈怀宇</td>
+                    <td>Chen Huaiyu</td>
+                    <td>Chen Huaiyu</td>
+                    <td>
+                        <select name="3">
+                            <option value="0">打分</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>陈怀宇</td>
+                    <td>Chen Huaiyu</td>
+                    <td>Chen Huaiyu</td>
+                    <td>
+                        <select name="4">
+                            <option value="0">打分</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>陈怀宇</td>
+                    <td>Chen Huaiyu</td>
+                    <td>Chen Huaiyu</td>
+                    <td>
+                        <select name="5">
+                            <option value="0">打分</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </td>
+                </tr>-->
+
+    </table>
+
+    <nav aria-label="Page navigation"
+         style="padding:0;display: flex;justify-content: center;margin-top:0;margin-bottom:0;">
+        <ul id="page_ul" class="pagination" style="margin-top:0;margin-bottom:0;">
+            <li id="pre" class="page_li">
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
             </li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li>
-              <a href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </td>
-    </tr>
-    </tbody>
 
-  </table>
 
-<button type="submit" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;margin-left:50%;transform: translateX(-50%);margin-top:30px">提交</button>
+        </ul>
+    </nav>
+    <button type="submit" class="btn btn-default dropdown-toggle"
+            style="background-color:#DCDCDC;margin-left:50%;transform: translateX(-50%);margin-top:30px">计算最终得分
+    </button>
 
-<div style="text-align:center;color: rgb(108, 117, 125);font-family: Inter;font-size: 14px;margin-top:30px">
-    最终得分为：
-    <span style="display:inline-block;border:1px solid rgb(108, 117, 125);border-radius: 6px;height:30px;width:40px">1</span>
-</div>
+    <div style="text-align:center;color: rgb(108, 117, 125);font-family: Inter;font-size: 14px;margin-top:30px">
+        最终得分为：
+        <span style="display:inline-block;border:1px solid rgb(108, 117, 125);border-radius: 6px;height:30px;width:40px">1</span>
+    </div>
 
 </div>
 
-<div id="panelId" class="panel panel-default" style="position:absolute;top:80px;width:200px;margin-left:75%;display:inline-block;visibility:hidden">
-  <div class="panel-heading">人工评价</div>
-  <div class="panel-body">
-    对机器翻译的结果做出人工评判：
-     0分  ---------- > 5分
-    非常不好--------- > 很好
-  </div>
+<div id="panelId" class="panel panel-default"
+     style="position:absolute;top:80px;width:200px;margin-left:75%;display:inline-block;visibility:">
+    <div class="panel-heading">人工评价</div>
+    <div class="panel-body">
+        对机器翻译的结果做出人工评判：
+        0分 ---------- > 5分
+        非常不好--------- > 很好
+        注意：若某条平行语料未打分，则默认为零分！
+    </div>
 </div>
-
 
 
 <div class="footer">
 
 </div>
+
+<script src="../static/js/analyze.js"></script>
+<script src="../static/js/grade.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
