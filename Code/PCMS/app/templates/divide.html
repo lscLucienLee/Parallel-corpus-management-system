@@ -131,7 +131,7 @@
    </div>
    </form>
    <div class="button">
-<button type="submit"  onclick="Post()" class="btn btn-default " style="background-color: #DCDCDC;position: fixed;top:750px;left:700px" >拆分语料库</button>
+<button type="submit"  onclick="Post(),openwindow()" class="btn btn-default " style="background-color: #DCDCDC;position: fixed;top:750px;left:700px" >拆分语料库</button>
    </div>
  <script src="../static/js/jQuery.js"></script>
         <script src="../static/plugins/bootstrap/js/bootstrap.js"></script>
@@ -165,6 +165,16 @@
    </script>
 <script src="../static/js/jQuery.js"></script>
         <script src="../static/plugins/bootstrap/js/bootstrap.js"></script>
+   <script>
+	function openwindow(){
+		var r = confirm("确认拆分吗？")
+		if (r == true) {
+		window.location.href="#"
+		} else {
+
+		}
+	}
+</script>
 <script>
     var table = document.querySelector("table")
     //模拟后台响应的数据
@@ -391,7 +401,7 @@
            var corpus_name1=$('input:radio:checked').val()
 
            $.ajax({
-            url: "/index", //后端地址
+            url: "/index/", //后端地址
             type: "post",       //提交方式
             data: {  "corpus_name":"corpus_name1"
 
