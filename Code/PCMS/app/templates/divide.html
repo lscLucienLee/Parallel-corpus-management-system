@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <title>拆分界面</title>
     <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
+    <script>
+            var jqxhr = $.getJSON('/path/to/resource', {
+            }).done(function (data) {
+                // data已经被解析为JSON对象了
+                data.forEach(function(item, i) {
+                console.log("item.id");
+                }
+            });
+
+    </script>
     <style>
        .navbar{
         border-radius:0;
