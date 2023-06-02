@@ -219,7 +219,7 @@
                 let end; //当页数据的结束下标
                 if (pagethis != 1) {
                     start = (pagethis - 1) * page_number;
-                    end = start + page_number;
+                    end = start + page_number-1;
                     if (end > json.length - 1) { //如果当页数据结束值大于总数据条数下标的值则赋值为总数据条数最大下标值
                         end = json.length - 1;
                     }
@@ -260,7 +260,7 @@
                 let end;
                 if (pagethis != 1) {
                     start = (pagethis - 1) * page_number;
-                    end = start + page_number;
+                    end = start + page_number-1;
                     if (end > json.length - 1) {
                         end = json.length - 1;
                     }
@@ -298,7 +298,7 @@
                 let end;
                 if (pagethis != 1) {
                     start = (pagethis - 1) * page_number;
-                    end = start + page_number;
+                    end = start + page_number-1;
                     if (end > json.length - 1) {
                         end = json.length - 1;
                     }
