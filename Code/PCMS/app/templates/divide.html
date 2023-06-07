@@ -5,14 +5,20 @@
     <title>拆分界面</title>
     <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
     <script>
-            var jqxhr = $.getJSON('/path/to/resource', {
-            }).done(function (data) {
-                // data已经被解析为JSON对象了
-                data.forEach(function(item, i) {
-                console.log("item.id");
-                }
-            });
-
+        var request = new XMLHttpRequest();
+        request.open('GET', '/path', true);
+        request.onload = function() {
+          if (request.status >= 200 && request.status < 400) {
+            var data = JSON.parse(request.responseText);
+            console.log(data);
+          } else {
+            console.error("Failed to get JSON data");
+          }
+        };
+        request.onerror = function() {
+          console.error("Failed to connect to server");
+        };
+        request.send();
     </script>
     <style>
        .navbar{
