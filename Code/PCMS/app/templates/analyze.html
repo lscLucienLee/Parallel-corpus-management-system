@@ -7,6 +7,24 @@
   <script src="../static/js/jQuery.js"></script>
   <script src="../static/js/analyze.js"></script>
   <script src="../static/plugins/bootstrap/js/bootstrap.js"></script>
+      <script type="text/javascript">
+            $(document).ready(function(){
+                    $.ajax({
+                        url: '/my_view',
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(data) {
+                          console.log(data);
+                          // 处理响应数据
+                        },
+                        error: function(xhr, textStatus, errorThrown) {
+                          console.log("Error: " + errorThrown);
+                          // 处理错误
+                        }
+                      });
+                });
+
+    </script>
   <style>
     .container {
     display: flex;
