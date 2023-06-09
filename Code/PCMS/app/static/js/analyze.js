@@ -1,76 +1,106 @@
+//初始页面加载：获得词频前五的数据
+/*
+方法：get
+res:
+[
+{"corpus_number":"100"}
+{"id":"1","original":"词","translation":"word","frequencyId":"12"}//
+...
+]
+*/
+$(document).ready(function () {
+    $.ajax({
+        url: '/path/to/resource',
+        type: 'GET',
+        dataType: 'text',
+        success: function (data) {
+            console.log(data);
+            // 处理响应数据
+
+            let json = JSON.parse(data);
+            json.forEach(function (item, i) {
+                if (i === 1) {
+                    $("#corpusNumberId").text(item.corpus_number);
+                } else {
+                    if (i < 6) {
+                        let tr = document.createElement("tr");
+                        tr.innerHTML = `
+                            <td>${item.id}</td>
+                            <td>${item.original}</td>
+                            <td>${item.translation}</td>
+                            <td>${item.frequencyId}</td>
+                            `
+                        tbody.appendChild(tr);
+                    }
+                }
+            })
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log("Error: " + errorThrown);
+            // 处理错误
+        }
+    });
+});
+
+
 //查询输入单词的词频
-function frequency(){
-    var wordVal = $('input[name="word"]').val();
-    if (wordVal=="") {
+/*
+* 方法：post
+* req:
+* {word:"word"}
+*
+* res:
+* {
+*   "word":"word",
+*   "frequencyId":"13"
+* }
+*
+*/
+function frequency() {
+    let wordVal = $('input[name="word"]').val();
+    if (wordVal === " ") {
         alert("请输入查询内容！");
-        return;
-    }else{
-        $("#word").text(word);
-        var requestBody={
-            word:'word'
+    } else {
+        $("#word").text(wordVal);
+        let requestBody = {
+            word: 'word'
         };
-        requestBody.word=wordVal;
-        var jqxhr = $.post('/path/to/resource',requestBody);
-        jqxhr.done(function(data) {
-            $("#frequencyId").test(data.frequency);
+        requestBody.word = wordVal;
+        $.ajax({
+            url: '/path/to/resource',
+            type: 'POST',
+            data: requestBody,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                $("#frequencyId").test(data.frequency);
+                // 处理响应数据
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log("Error: " + errorThrown);
+                // 处理错误
+            }
         });
+
     }
 }
 
 //鼠标放上去会解释查询
-function hover(){
+function hover() {
     const button = document.querySelector('.btn.btn-default');
     const panel = document.querySelector('.panel.panel-default');
 
     button.addEventListener('mouseover', () => {
-      panel.style.visibility = 'visible';
+        panel.style.visibility = 'visible';
     });
 
     button.addEventListener('mouseout', () => {
-      panel.style.visibility = 'hidden';
+        panel.style.visibility = 'hidden';
     });
 }
 
-//查找一共有多少条平行语料
-var corpusNumber = $.getJSON('/path/to/resource', {
-    corpus_name: 'Bob Lee',
-}).done(function (data) {
-    $("#corpusNumberId")=data.corpus_number;
-    // data已经被解析为JSON对象了
-});
 
 
-    var json = [{
-        "id": "1001",
-        "": "java核心技术1",
-        "price": "120",
-        "imgurl": "res/productimg/1.jpeg"
-    }, {
-        "product_id": "1002",
-        "product_name": "java核心技术2",
-        "price": "130",
-        "imgurl": "res/productimg/2.jpeg"
-    }, {
-        "product_id": "1003",
-        "product_name": "web技术",
-        "price": "100",
-        "imgurl": "res/productimg/3.jpeg"
-    }, {
-        "product_id": "1004",
-        "product_name": "Mysql必知必会",
-        "price": "39",
-        "imgurl": "res/productimg/4.jpeg"
-    }, {
-        "product_id": "1005",
-        "product_name": "中国近代史",
-        "price": "105",
-        "imgurl": "res/productimg/4.jpeg"
-    }];
 
-var json = $.getJSON('/path/to/resource', {
-    corpus_name: 'Bob Lee',
-}).done(function (data) {
 
-    // data已经被解析为JSON对象了
-});
 
