@@ -42,3 +42,27 @@ function openwindow(){
 
 		}
 	}
+function ShowImage(self){
+       if($("#status").val()==1)
+       {$("#image1").removeClass("hidden");
+       $("#image2").addClass("hidden");
+       $("#image3").addClass("hidden");
+       }
+       else if($("#status").val()==2)
+       {$("#image1").removeClass("hidden");
+       $("#image2").removeClass("hidden");
+       $("#image3").addClass("hidden");}
+       else if($("#status").val()==3)
+       {
+           $("#image1").removeClass("hidden");
+           $("#image2").removeClass("hidden");
+           $("#image3").removeClass("hidden");}
+       else if($("#status").val()==0)
+       {
+           $("#image1").addClass("hidden");
+           $("#image2").addClass("hidden");
+           $("#image3").addClass("hidden");
+       }
+
+
+     }
