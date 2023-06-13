@@ -3,7 +3,7 @@
     $(document).ready(function () {
     let tbody = document.querySelector("tbody");
     $.ajax({
-        url: '/path/to/resource',
+        url: '/browse/data/',
         type: 'GET',
         dataType: 'text',
         success: function (data) {
