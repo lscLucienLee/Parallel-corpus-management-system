@@ -26,7 +26,7 @@
           <th style="width: 400px">译文</th>
           <th style="width: 140px">操作</th>
             </tr>
-        </tbody
+        </tbody>
         `
         }
 

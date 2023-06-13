@@ -7,6 +7,24 @@ function openwindow(){
 		}
 	}
 function search(){
+       var json;
+     json.forEach(function (item, i) {
+            var tbody = document.querySelector("tbody");
+            if (i < page_number) {
+                var tr = document.createElement("tr");
+                tr.innerHTML = `
+                            <td style="width: 50px">${item.id}</td>
+                            <td style="width: 400px">${item.original}</td>
+                            <td style="width: 400px">${item.translation}</td>
+                            <td style="width:140px">
+             <a href="/update/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">更新</button></a>
+             <a href="/delete_corpus/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">删除</button></a>
+          </td>
+                            `
+                tbody.appendChild(tr);
+            }
+
+        })
     let wordVal = $('input[name="word"]').val();
     if (wordVal === " ") {
         alert("请输入查询内容！");
