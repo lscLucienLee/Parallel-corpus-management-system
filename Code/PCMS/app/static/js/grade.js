@@ -197,7 +197,7 @@ var table = document.querySelector("table")
         next = document.querySelector("#next") //下一页
         pre.onclick = function() {
             //alert(pagethis)
-            if (pagethis != 1) { //当前页数不等于1时执行上一页
+            if (pagethis !== 1) { //当前页数不等于1时执行上一页
                 pagethis--;
 
                 let start;

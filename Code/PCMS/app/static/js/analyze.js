@@ -9,6 +9,7 @@ res:
 ]
 */
 $(document).ready(function () {
+    let tbody = document.querySelector("tbody");
     $.ajax({
         url: '/path/to/resource',
         type: 'GET',
