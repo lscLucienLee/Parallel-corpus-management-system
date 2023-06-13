@@ -186,13 +186,14 @@
 
         </ul>
     </nav>
-    <button type="submit" class="btn btn-default dropdown-toggle"
-            style="background-color:#DCDCDC;margin-left:50%;transform: translateX(-50%);margin-top:30px">计算最终得分
+    <button type="button" class="btn btn-default dropdown-toggle"
+            style="background-color:#DCDCDC;margin-left:50%;transform: translateX(-50%);margin-top:30px"
+            onclick="getGrade()">计算最终得分
     </button>
 
     <div style="text-align:center;color: rgb(108, 117, 125);font-family: Inter;font-size: 14px;margin-top:30px">
         最终得分为：
-        <span style="display:inline-block;border:1px solid rgb(108, 117, 125);border-radius: 6px;height:30px;width:40px">1</span>
+        <span id="gradeId" style="display:inline-block;border:1px solid rgb(108, 117, 125);border-radius: 6px;height:30px;width:40px">1</span>
     </div>
 
 </div>
@@ -207,7 +208,6 @@
         注意：若某条平行语料未打分，则默认为零分！
     </div>
 </div>
-
 
 <div class="footer">
 
