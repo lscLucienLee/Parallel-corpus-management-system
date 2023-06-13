@@ -1,9 +1,30 @@
+function openwindow(){
+		var r = confirm("确认删除吗？")
+		if (r == true) {
+		window.location.href="#"
+		} else {
 
-    var table = document.querySelector("table")
-    //模拟后台响应的数据
-    $(document).ready(function () {
+		}
+	}
+function search(){
+    let wordVal = $('input[name="word"]').val();
+    if (wordVal === " ") {
+        alert("请输入查询内容！");
+    } else {
+        $("#word").text(wordVal);
+        let requestBody = {
+            word: 'word'
+        };
+        requestBody.word = wordVal;
         $.ajax({
-            url: '/manage/data/',
+            url: '/path/to/resource',
+            type: 'POST',
+            data: requestBody,
+            dataType: 'json',
+            success: function (data) {
+                var table = document.querySelector("table")
+                $.ajax({
+            url: '/browse/data/',
             type: 'GET',
             dataType: 'text',
             success: function (data) {
@@ -11,7 +32,7 @@
                 // 处理响应数据
                 let json = JSON.parse(data);
                 var ul = document.querySelector(".pagination");
-        var page_number = 3; //单页浏览的条数
+        var page_number = 10; //单页浏览的条数
         var Total_pages; //页数
         var liAll; //页码按钮下标为 1到length-2是页数 0和length-1为上一页和下一页
         var pre; //上一页
@@ -20,13 +41,13 @@
         function clearTable() {
             table.innerHTML = `
         <tbody>
-              <tr>
-            <th>#</th>
-            <th style="width: 180px">语料库名</th>
-            <th style="width: 200px">新建时间</th>
-            <th style="text-align: center">操作</th>
-          </tr>
-        </tbody>
+             <tr>
+                 <th style="width: 50px">#</th>
+                    <th style="width:400px">原文</th>
+          <th style="width: 400px">译文</th>
+          <th style="width: 140px">操作</th>
+            </tr>
+        </tbody
         `
         }
 
@@ -35,25 +56,13 @@
             if (i < page_number) {
                 var tr = document.createElement("tr");
                 tr.innerHTML = `
-                            <td>${item.nid}</td>
-                            <td>${item.name}</td>
-                            <td>${item.time}</td>
-                             <td>
-              <a href="/browse/" ><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">浏览查询</button>
-             </a>
-                <a href="/correct/"><button type="button" class="btn btn-default " style="width: 160px;background-color:#DCDCDC">修改语料库名</button></a>
-            <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">删除语料库</button>
-            <a href="#" class="window"><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">高级操作</button>
-             <div class="w">
-                <div class="panel panel-default">
-                   <div class="panel-heading">
-                   <h3 class="panel-title">高级操作</h3>
-                </div>
-             <div class="panel-body">包括过滤、去重、规范化、分析评价、翻译评价、对齐这些操作
-      </div>
-</div>
-             </div></a>
-            </td>
+                            <td style="width: 50px">${item.id}</td>
+                            <td style="width: 400px">${item.original}</td>
+                            <td style="width: 400px">${item.translation}</td>
+                            <td style="width:140px">
+             <a href="/update/"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">??</button></a>
+              <button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">??</button>
+          </td>
                             `
                 tbody.appendChild(tr);
             }
@@ -109,25 +118,13 @@
                     if (i >= start && i <= end) {
                         var tr = document.createElement("tr");
                         tr.innerHTML = `
-                           <td>${item.nid}</td>
-                            <td>${item.name}</td>
-                            <td>${item.time}</td>
-                             <td>
-              <a href="/browse/" ><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">浏览查询</button>
-             </a>
-                <a href="/correct/"><button type="button" class="btn btn-default " style="width: 160px;background-color:#DCDCDC">修改语料库名</button></a>
-            <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">删除语料库</button>
-            <a href="#" class="window"><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">高级操作</button>
-             <div class="w">
-                <div class="panel panel-default">
-                   <div class="panel-heading">
-                   <h3 class="panel-title">高级操作</h3>
-              </div>
-             <div class="panel-body">包括过滤、去重、规范化、分析评价、翻译评价、对齐这些操作
-      </div>
-</div>
-             </div></a>
-            </td>
+                           <td style="width: 50px">${item.id}</td>
+                            <td style="width: 400px">${item.original}</td>
+                            <td style="width: 400px">${item.translation}</td>
+                            <td style="width:140px">
+             <a href="/update/"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">??</button></a>
+              <button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">??</button>
+          </td>
                             `
                         tbody.appendChild(tr);
                     }
@@ -164,25 +161,13 @@
                     if (i >= start && i <= end) {
                         var tr = document.createElement("tr");
                         tr.innerHTML = `
-                            <td>${item.nid}</td>
-                            <td>${item.name}</td>
-                            <td>${item.time}</td>
-                             <td>
-              <a href="/browse/" ><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">浏览查询</button>
-             </a>
-                <a href="/correct/"><button type="button" class="btn btn-default " style="width: 160px;background-color:#DCDCDC">修改语料库名</button></a>
-            <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">删除语料库</button>
-            <a href="#" class="window"><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">高级操作</button>
-             <div class="w">
-                <div class="panel panel-default">
-                   <div class="panel-heading">
-                   <h3 class="panel-title">高级操作</h3>
-              </div>
-             <div class="panel-body">包括过滤、去重、规范化、分析评价、翻译评价、对齐这些操作
-      </div>
-</div>
-             </div></a>
-            </td>
+                            <td style="width: 50px">${item.id}</td>
+                            <td style="width: 400px">${item.original}</td>
+                            <td style="width: 400px">${item.translation}</td>
+                            <td style="width:140px">
+             <a href="/update/"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">??</button></a>
+              <button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">??</button>
+          </td>
                             `
                         console.log(tr)
                         tbody.appendChild(tr);
@@ -218,25 +203,13 @@
                     if (i >= start && i <= end) {
                         var tr = document.createElement("tr");
                         tr.innerHTML = `
-                            <td>${item.nid}</td>
-                            <td>${item.name}</td>
-                            <td>${item.time}</td>
-                             <td>
-              <a href="/browse/" ><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">浏览查询</button>
-             </a>
-                <a href="/correct/"><button type="button" class="btn btn-default " style="width: 160px;background-color:#DCDCDC">修改语料库名</button></a>
-            <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">删除语料库</button>
-            <a href="#" class="window"><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">高级操作</button>
-             <div class="w">
-                <div class="panel panel-default">
-                   <div class="panel-heading">
-                   <h3 class="panel-title">高级操作</h3>
-              </div>
-             <div class="panel-body">包括过滤、去重、规范化、分析评价、翻译评价、对齐这些操作
-      </div>
-</div>
-             </div></a>
-            </td>
+                            <td style="width: 50px">${item.id}</td>
+                            <td style="width: 400px">${item.original}</td>
+                            <td style="width: 400px">${item.translation}</td>
+                            <td style="width:140px">
+             <a href="/update/"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">??</button></a>
+              <button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">??</button>
+          </td>
                             `
                         console.log(tr)
                         tbody.appendChild(tr);
@@ -247,12 +220,13 @@
             }
         })
 
+                // 处理响应数据
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log("Error: " + errorThrown);
+                // 处理错误
+            }
+        });
 
-    })
-
-
-
-
-
-
-
+    }
+}

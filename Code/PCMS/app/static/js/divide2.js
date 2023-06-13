@@ -20,12 +20,12 @@
         function clearTable() {
             table.innerHTML = `
         <tbody>
-              <tr>
-            <th>#</th>
-            <th style="width: 180px">语料库名</th>
-            <th style="width: 200px">新建时间</th>
-            <th style="text-align: center">操作</th>
-          </tr>
+             <tr>
+                <th style="width:40px">#</th>
+          <th style="width:320px;text-align: center">语料库名</th>
+          <th style="width:320px;text-align: center ">创建时间</th>
+          <th style="width:120px;text-align: center ">是否选择拆分</th>
+            </tr>
         </tbody>
         `
         }
@@ -35,25 +35,10 @@
             if (i < page_number) {
                 var tr = document.createElement("tr");
                 tr.innerHTML = `
-                            <td>${item.nid}</td>
-                            <td>${item.name}</td>
+                             <td>${item.nid}</td>
+                            <td >${item.name}</td>
                             <td>${item.time}</td>
-                             <td>
-              <a href="/browse/" ><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">浏览查询</button>
-             </a>
-                <a href="/correct/"><button type="button" class="btn btn-default " style="width: 160px;background-color:#DCDCDC">修改语料库名</button></a>
-            <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">删除语料库</button>
-            <a href="#" class="window"><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">高级操作</button>
-             <div class="w">
-                <div class="panel panel-default">
-                   <div class="panel-heading">
-                   <h3 class="panel-title">高级操作</h3>
-                </div>
-             <div class="panel-body">包括过滤、去重、规范化、分析评价、翻译评价、对齐这些操作
-      </div>
-</div>
-             </div></a>
-            </td>
+                            <td> <input type="radio" value="${item.name}"  onclick="ok()"  name="n1" style="margin-left: 40px"></td>
                             `
                 tbody.appendChild(tr);
             }
@@ -109,25 +94,10 @@
                     if (i >= start && i <= end) {
                         var tr = document.createElement("tr");
                         tr.innerHTML = `
-                           <td>${item.nid}</td>
-                            <td>${item.name}</td>
+                            <td>${item.nid}</td>
+                            <td >${item.name}</td>
                             <td>${item.time}</td>
-                             <td>
-              <a href="/browse/" ><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">浏览查询</button>
-             </a>
-                <a href="/correct/"><button type="button" class="btn btn-default " style="width: 160px;background-color:#DCDCDC">修改语料库名</button></a>
-            <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">删除语料库</button>
-            <a href="#" class="window"><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">高级操作</button>
-             <div class="w">
-                <div class="panel panel-default">
-                   <div class="panel-heading">
-                   <h3 class="panel-title">高级操作</h3>
-              </div>
-             <div class="panel-body">包括过滤、去重、规范化、分析评价、翻译评价、对齐这些操作
-      </div>
-</div>
-             </div></a>
-            </td>
+                            <td> <input type="radio" value="${item.name}"  onclick="ok()"  name="n1" style="margin-left: 40px"></td>
                             `
                         tbody.appendChild(tr);
                     }
@@ -164,25 +134,10 @@
                     if (i >= start && i <= end) {
                         var tr = document.createElement("tr");
                         tr.innerHTML = `
-                            <td>${item.nid}</td>
-                            <td>${item.name}</td>
+                             <td>${item.nid}</td>
+                            <td >${item.name}</td>
                             <td>${item.time}</td>
-                             <td>
-              <a href="/browse/" ><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">浏览查询</button>
-             </a>
-                <a href="/correct/"><button type="button" class="btn btn-default " style="width: 160px;background-color:#DCDCDC">修改语料库名</button></a>
-            <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">删除语料库</button>
-            <a href="#" class="window"><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">高级操作</button>
-             <div class="w">
-                <div class="panel panel-default">
-                   <div class="panel-heading">
-                   <h3 class="panel-title">高级操作</h3>
-              </div>
-             <div class="panel-body">包括过滤、去重、规范化、分析评价、翻译评价、对齐这些操作
-      </div>
-</div>
-             </div></a>
-            </td>
+                            <td> <input type="radio" value="${item.name}"  onclick="ok()"  name="n1" style="margin-left: 40px"></td>
                             `
                         console.log(tr)
                         tbody.appendChild(tr);
@@ -218,25 +173,10 @@
                     if (i >= start && i <= end) {
                         var tr = document.createElement("tr");
                         tr.innerHTML = `
-                            <td>${item.nid}</td>
-                            <td>${item.name}</td>
+                             <td>${item.nid}</td>
+                            <td >${item.name}</td>
                             <td>${item.time}</td>
-                             <td>
-              <a href="/browse/" ><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">浏览查询</button>
-             </a>
-                <a href="/correct/"><button type="button" class="btn btn-default " style="width: 160px;background-color:#DCDCDC">修改语料库名</button></a>
-            <button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">删除语料库</button>
-            <a href="#" class="window"><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC">高级操作</button>
-             <div class="w">
-                <div class="panel panel-default">
-                   <div class="panel-heading">
-                   <h3 class="panel-title">高级操作</h3>
-              </div>
-             <div class="panel-body">包括过滤、去重、规范化、分析评价、翻译评价、对齐这些操作
-      </div>
-</div>
-             </div></a>
-            </td>
+                            <td> <input type="radio" value="${item.name}"  onclick="ok()"  name="n1" style="margin-left: 40px"></td>
                             `
                         console.log(tr)
                         tbody.appendChild(tr);
