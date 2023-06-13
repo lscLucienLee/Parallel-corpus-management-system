@@ -1,53 +1,72 @@
 import csv
-import os
-from typing import List
-from fast_align import align
-from io import StringIO
+import subprocess
+from typing import List, Dict
 
-class CorpusAligner:
-    def __init__(self, corpus_name: str):
+class FastAlignWrapper:
+    def __init__(self, corpus_name: str, fast_align_path: str):
         self.corpus_name = corpus_name
+        self.fast_align_path = fast_align_path
 
-    def read_corpus(self) -> List[List[str]]:
-        corpus = []
-        with open(self.corpus_name, "r", encoding="utf-8") as csvfile:
-            reader = csv.reader(csvfile)
+    def convert_to_fast_align_format(self, input_csv, output_txt):
+        with open(input_csv, 'r', encoding='utf-8') as csvfile, open(output_txt, 'w', encoding='utf-8') as txtfile:
+            reader = csv.DictReader(csvfile)
             for row in reader:
-                corpus.append(row)
-        return corpus
+                txtfile.write(f"{row['original']}\t{row['translation']}\n")
 
-    def display_sentence_alignment(self, sentence_pairs: List[List[str]]):
-        for i, (src, tgt) in enumerate(sentence_pairs):
-            print(f"{i+1}. Source: {src}")
-            print(f"   Target: {tgt}")
+    def run_fast_align(self, input_txt, output_txt):
+        forward_align = f"{self.fast_align_path} -i {input_txt} -d -o -v > {output_txt}"
+        subprocess.run(forward_align, shell=True)
 
-    def align_sentences(self, sentence_pairs: List[List[str]]) -> List[List[str]]:
-        input_data = "\n".join(f"{src} ||| {tgt}" for src, tgt in sentence_pairs)
-        aligned_output = align(StringIO(input_data))
-        
-        aligned_pairs = []
-        for output_line in aligned_output.split('\n'):
-            if not output_line.strip():
-                continue
-            src, tgt = output_line.split("|||")
-            aligned_pairs.append(([s.strip() for s in src.split()], [t.strip() for t in tgt.split()]))
-        return aligned_pairs
+    def parse_fast_align_output(self, input_txt):
+        aligned_data = []
 
-    def manual_alignment(self, aligned_pairs: List[List[str]]):
-        for i, (src, tgt) in enumerate(aligned_pairs):
-            while True:
-                self.display_sentence_alignment([(src, tgt)])
-                user_input = input(f"请在对齐不准确的地方进行修改，然后按回车键。输入'next'以进入下一句。")
-                if user_input.lower() == 'next':
-                    break
+        with open(input_txt, 'r', encoding='utf-8') as txtfile:
+            for line in txtfile:
+                original, translation, alignment_str = line.strip().split(' ||| ')
+                original_words = original.split()
+                translation_words = translation.split()
+                alignments = alignment_str.split()
 
-    def align_corpus(self):
-        corpus = self.read_corpus()
-        sentence_pairs = [(row[1], row[2]) for row in corpus]
-        aligned_pairs = self.align_sentences(sentence_pairs)
-        self.manual_alignment(aligned_pairs)
+                aligned_original_words = []
+                aligned_translation_words = []
 
+                for alignment in alignments:
+                    orig_idx, trans_idx = map(int, alignment.split('-'))
+                    aligned_original_words.append(original_words[orig_idx])
+                    aligned_translation_words.append(translation_words[trans_idx])
+
+                aligned_data.append({
+                    'num': len(aligned_original_words),
+                    'original': aligned_original_words,
+                    'translation': aligned_translation_words
+                })
+
+        return aligned_data
+
+    def align_words(self) -> List[Dict[str, List[str]]]:
+        input_csv = self.corpus_name
+        input_txt = 'fast_align_corpus.txt'
+        output_txt = 'aligned_words.txt'
+
+        self.convert_to_fast_align_format(input_csv, input_txt)
+        self.run_fast_align(input_txt, output_txt)
+        aligned_data = self.parse_fast_align_output(output_txt)
+
+        return aligned_data
 
 # # 使用示例
-# aligner = CorpusAligner("corpus.csv")
-# aligner.align_corpus()
+# fast_align_path = 'path/to/fast_align/build/fast_align.exe'  # 替换 fast_align.exe 路径
+# corpus_name = 'corpus.csv'
+# aligner = FastAlignWrapper(corpus_name, fast_align_path)
+# aligned_data = aligner.align_words()
+
+# for data in aligned_data:
+#     print(data)
+# 克隆 fast_align 仓库并构建可执行文件：
+
+# 打开一个命令提示符窗口，并进入到希望存放 fast_align 代码的目录。
+# 运行以下命令以克隆仓库： git clone https://github.com/clab/fast_align.git
+# 进入 fast_align 目录： cd fast_align
+# 创建构建目录： mkdir build && cd build
+# 运行： cmake .. -DCMAKE_BUILD_TYPE=Release
+# 构建可执行文件： cmake --build . --config Release

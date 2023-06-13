@@ -12,12 +12,12 @@ class CorpusSplitter:
 
         # 计算拆分点
         total_ratio = sum(info['ratio'] for info in split_infos)
-        split_points = [int(len(rows) * info['ratio'] / total_ratio) for info in split_infos]
+        split_points = [int(len(rows) * info['ratio'] / total_ratio) for info in split_infos[:-1]] + [len(rows)]
 
         # 拆分语料库并保存新文件
         start = 0
         for i, split_info in enumerate(split_infos):
-            end = start + split_points[i]
+            end = min(start + split_points[i], len(rows))
             with open(split_info['output_name'], 'w', newline='', encoding='utf-8') as output_file:
                 fieldnames = ['id', 'original', 'translation']
                 writer = csv.DictWriter(output_file, fieldnames=fieldnames)
@@ -29,6 +29,7 @@ class CorpusSplitter:
 
             start = end
             print(f'已根据占比拆分语料库并保存为: {split_info["output_name"]}')
+
 
 # # 使用示例
 # splitter = CorpusSplitter()
