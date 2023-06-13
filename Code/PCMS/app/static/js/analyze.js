@@ -74,7 +74,8 @@ function frequency() {
             dataType: 'json',
             success: function (data) {
                 console.log(data);
-                $("#frequencyId").test(data.frequency);
+                console.log(data.frequencyId);
+                $("#frequencyId").text(data.frequencyId);
                 // 处理响应数据
             },
             error: function (xhr, textStatus, errorThrown) {
