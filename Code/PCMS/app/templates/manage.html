@@ -112,31 +112,17 @@
 <script>
     var table = document.querySelector("table")
     //模拟后台响应的数据
-   var json = [{"nid":"1",
-        "name": "陈怀宇",
-        "time":"xx年xx月xx日"
-    },{ "nid":"2",
-        "name": "陈怀宇",
-        "time":"xx年xx月xx日"
-    },{  "nid":"3",
-        "name": "陈怀宇",
-        "time":"xx年xx月xx日"
-    },{"nid":"4",
-        "name": "陈怀宇",
-        "time":"xx年xx月xx日"
-    },{"nid":"5",
-        "name": "陈怀宇",
-        "time":"xx年xx月xx日"
-    },{"nid":"6",
-        "name": "陈怀宇",
-        "time":"xx年xx月xx日"
-    },{"nid":"7",
-        "name": "陈怀宇",
-        "time":"xx年xx月xx日"
-    },{"nid":"8",
-        "name": "陈怀宇",
-        "time":"xx年xx月xx日"
-    }];
+    $(document).ready(function () {
+    $.ajax({
+        url: '/path/to/resource',
+        type: 'GET',
+        dataType: 'text',
+        success: function (data) {
+            console.log(data);
+            // 处理响应数据
+
+            let json = JSON.parse(data);
+
     var ul = document.querySelector(".pagination");
     var page_number = 3; //单页浏览的条数
     var Total_pages; //页数
