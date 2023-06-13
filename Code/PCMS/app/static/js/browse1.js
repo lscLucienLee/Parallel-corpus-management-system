@@ -39,8 +39,8 @@
                             <td style="width: 400px">${item.original}</td>
                             <td style="width: 400px">${item.translation}</td>
                             <td style="width:140px">
-             <a href="/update/"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">??</button></a>
-              <button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">??</button>
+             <a href="/update/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">更新</button></a>
+             <a href="/delete_corpus/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">删除</button></a>
           </td>
                             `
                 tbody.appendChild(tr);
@@ -101,8 +101,8 @@
                             <td style="width: 400px">${item.original}</td>
                             <td style="width: 400px">${item.translation}</td>
                             <td style="width:140px">
-             <a href="/update/"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">??</button></a>
-              <button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">??</button>
+            <a href="/update/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">更新</button></a>
+             <a href="/delete_corpus/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">删除</button></a>
           </td>
                             `
                         tbody.appendChild(tr);
@@ -144,8 +144,8 @@
                             <td style="width: 400px">${item.original}</td>
                             <td style="width: 400px">${item.translation}</td>
                             <td style="width:140px">
-             <a href="/update/"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">??</button></a>
-              <button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">??</button>
+            <a href="/update/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">更新</button></a>
+             <a href="/delete_corpus/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">删除</button></a>
           </td>
                             `
                         console.log(tr)
@@ -186,8 +186,8 @@
                             <td style="width: 400px">${item.original}</td>
                             <td style="width: 400px">${item.translation}</td>
                             <td style="width:140px">
-             <a href="/update/"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">??</button></a>
-              <button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">??</button>
+             <a href="/update/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">更新</button></a>
+             <a href="/delete_corpus/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">删除</button></a>
           </td>
                             `
                         console.log(tr)
