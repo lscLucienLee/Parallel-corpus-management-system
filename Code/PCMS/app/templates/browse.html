@@ -62,9 +62,9 @@
     <div>
         <div style="width:500px">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="请输入要查询的关键词" style="width:250px ">
+                <input type="text" class="form-control" name="word" placeholder="请输入要查询的关键词" style="width:250px ">
                 <div class="input-group-btn" style="float: left">
-                    <button class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <button class="btn btn-default" onclick="search()"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </div>
             </div>
         </div>
@@ -101,18 +101,9 @@
 </body>
 <script src="../static/js/jQuery.js"></script>
 <script src="../static/plugins/bootstrap/js/bootstrap.js"></script>
+<script src="../static/js/browse1.js"></script>
+<script src="../static/js/browse2.js"></script>
 
-<script>
-	function openwindow(){
-		var r = confirm("确认删除吗？")
-		if (r == true) {
-		window.location.href="#"
-		} else {
-
-		}
-	}
-
-</script>
 
 
 
