@@ -64,7 +64,7 @@ class FastAlignWrapper:
 #     print(data)
 # 克隆 fast_align 仓库并构建可执行文件：
 
-# 打开一个命令提示符窗口，并进入到您希望存放 fast_align 代码的目录。
+# 打开一个命令提示符窗口，并进入到希望存放 fast_align 代码的目录。
 # 运行以下命令以克隆仓库： git clone https://github.com/clab/fast_align.git
 # 进入 fast_align 目录： cd fast_align
 # 创建构建目录： mkdir build && cd build
