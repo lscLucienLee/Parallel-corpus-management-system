@@ -3,18 +3,14 @@
     //模拟后台响应的数据
     $(document).ready(function () {
         $.ajax({
-            url: '/path/to/resource',
+            url: '/manage/data/',
             type: 'GET',
             dataType: 'text',
             success: function (data) {
                 console.log(data);
                 // 处理响应数据
-
                 let json = JSON.parse(data);
-            }
-        })
-
-        var ul = document.querySelector(".pagination");
+                var ul = document.querySelector(".pagination");
         var page_number = 3; //单页浏览的条数
         var Total_pages; //页数
         var liAll; //页码按钮下标为 1到length-2是页数 0和length-1为上一页和下一页
@@ -248,6 +244,10 @@
                 })
             }
         }
+            }
+        })
+
+
     })
 
 

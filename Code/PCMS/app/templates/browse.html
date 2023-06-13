@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>浏览查询界面</title>
-  <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../static/plugins/font-awesome-4.7.0/css/font-awesome.css">
-  <style>
+    <style>
      .navbar{
         border-radius:0;
         }
@@ -18,88 +18,89 @@
            width: 80%;
             margin: 0 auto;
      }
-  </style>
+
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
         <div class="navbar-header">
 
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                  data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <div class="navbar-brand" >平行语料库管理系统</div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand">平行语料库管理系统</div>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
-          <ul class="nav navbar-nav">
-          </ul>
+            <ul class="nav navbar-nav">
+            </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">主页</a></li>
-        <li><a href="#">登出</a></li>
-       <li><a href="#">返回上一步</a></li>
-      </ul>
-        </div></div>
- </nav>
- <h3 style="margin-left:20px;color: rgb(0, 0, 0);font-family: Inter;font-size: 30px;font-weight: 800;">
+                <li><a href="#">主页</a></li>
+                <li><a href="#">登出</a></li>
+                <li><a href="#">返回上一步</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<h3 style="margin-left:20px;color: rgb(0, 0, 0);font-family: Inter;font-size: 30px;font-weight: 800;">
     当前语料库：陈怀宇
 </h3>
 <div style="width: 1100px;height:35px;margin-left:auto;margin-right: auto;margin-top:40px">
-<a href="/add/" ><button type="button" class="btn btn-default " style="width: 150px;background-color:#DCDCDC;margin-left:28px;position: fixed;left:128px  ">添加平行语料</button></a>
+    <a href="/add/">
+        <button type="button" class="btn btn-default "
+                style="width: 150px;background-color:#DCDCDC;margin-left:28px;position: fixed;left:128px  ">添加平行语料
+        </button>
+    </a>
 </div>
 
 
 <div class="container" style="margin-left: 139px;">
-  <div >
-  <div style="width:500px">
-    <div class="input-group">
-      <input type="text" class="form-control"  placeholder="请输入要查询的关键词" style="width:250px ">
-      <div class="input-group-btn" style="float: left">
-        <button class="btn btn-default" ><i class="fa fa-search" aria-hidden="true" ></i></button>
-      </div>
+    <div>
+        <div style="width:500px">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="请输入要查询的关键词" style="width:250px ">
+                <div class="input-group-btn" style="float: left">
+                    <button class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  </div>
 </div>
-
-
-
 
 
 <div id="main" style="position: absolute;left:155px">
-<table class="table table-bordered">
-            <tbody>
-                <tr>
-                  <th>#</th>
-                    <th style="width:400px">原文</th>
-          <th style="width: 400px">译文</th>
-          <th style="width: 140px">操作</th>
-                </tr>
-            </tbody>
-        </table>
+    <table class="table table-bordered">
+        <tbody>
+        <tr>
+            <th>#</th>
+            <th style="width:400px">原文</th>
+            <th style="width: 400px">译文</th>
+            <th style="width: 140px">操作</th>
+        </tr>
+        </tbody>
+    </table>
 
 
- <nav aria-label="Page navigation" style="margin-top:-10px;margin-left: 480px">
-            <ul class="pagination">
-                <li id="pre">
-                    <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
+    <nav aria-label="Page navigation" style="margin-top:-10px;margin-left: 480px">
+        <ul class="pagination">
+            <li id="pre">
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
 
-            </ul>
-        </nav>
+        </ul>
+    </nav>
 </div>
 
 
-
-
-   </body>
- <script src="../static/js/jQuery.js"></script>
-        <script src="../static/plugins/bootstrap/js/bootstrap.js"></script>
+</body>
+<script src="../static/js/jQuery.js"></script>
+<script src="../static/plugins/bootstrap/js/bootstrap.js"></script>
 
 <script>
 	function openwindow(){
@@ -110,6 +111,7 @@
 
 		}
 	}
+
 </script>
 
 
@@ -364,8 +366,8 @@
         }
 
     }
-</script>
 
+</script>
 
 
 </html>
