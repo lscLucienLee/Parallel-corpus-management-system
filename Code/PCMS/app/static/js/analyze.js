@@ -9,6 +9,7 @@ res:
 ]
 */
 $(document).ready(function () {
+    let tbody = document.querySelector("tbody");
     $.ajax({
         url: '/path/to/resource',
         type: 'GET',
@@ -19,7 +20,7 @@ $(document).ready(function () {
 
             let json = JSON.parse(data);
             json.forEach(function (item, i) {
-                if (i === 1) {
+                if (i === 0) {
                     $("#corpusNumberId").text(item.corpus_number);
                 } else {
                     if (i < 6) {
@@ -73,7 +74,8 @@ function frequency() {
             dataType: 'json',
             success: function (data) {
                 console.log(data);
-                $("#frequencyId").test(data.frequency);
+                console.log(data.frequencyId);
+                $("#frequencyId").text(data.frequencyId);
                 // 处理响应数据
             },
             error: function (xhr, textStatus, errorThrown) {
