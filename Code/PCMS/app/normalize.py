@@ -21,7 +21,7 @@ class TextNormalizer:
 
     def normalize(self, text):
         normalized_text = unicodedata.normalize('NFKD', text)
-        normalized_text = normalized_text.encode('ascii', 'ignore').decode('unicode_escape')
+        normalized_text = ''.join([c for c in normalized_text if (c >= '\u4e00' and c <= '\u9fa5') or (c >= 'a' and c <= 'z') or (c >= 'A' and c <= 'Z')])
         return normalized_text
 
     def process_csv(self):
