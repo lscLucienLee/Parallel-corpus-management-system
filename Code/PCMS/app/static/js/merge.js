@@ -94,20 +94,7 @@
                     })
                     // for (let j = 1; j < liAll.length - 1; j++) {
                     // }
-                    pageThis = this.id; //获取当前是第几页
-                    console.log(pageThis);
 
-                    if (pageThis !== 1) {
-                        start = (pageThis - 1) * page_number;
-                        end = start + page_number - 1;
-                        if (end > json.length - 1) { //如果当页数据结束值大于总数据条数下标的值则赋值为总数据条数最大下标值
-                            end = json.length - 1;
-                        }
-                    } else {
-                        start = 0;
-                        end = page_number - 1;
-
-                    }
 
                 clearTable();
                 var tbody = document.querySelector("tbody");
@@ -115,6 +102,7 @@
 
                     if (i >= start && i <= end) {
                         var tr = document.createElement("tr");
+                        tr.innerHTML = `
                         <td>${item.id}</td>
                             <td>${item.name}</td>
                             <td>${item.time}</td>
@@ -154,12 +142,7 @@
                             item.checked = document.getElementById(item.nid).checked;
                         }
                     })
-                   pageThis--;
-                    start = (pageThis - 1) * page_number;
-                    end = start + page_number - 1;
-                    if (end > json.length - 1) {
-                        end = json.length - 1;
-                    }
+
                 clearTable();
                 var tbody = document.querySelector("tbody");
                 json.forEach(function (item, i) {
@@ -204,14 +187,7 @@
                             item.value = document.getElementById(item.id).options[index].value;
                         }
                     })
-                    pageThis++;
-                    for (let j = 1; j < liAll.length - 1; j++) {
-                    }
-                    start = (pageThis - 1) * page_number;
-                    end = start + page_number - 1;
-                    if (end > json.length - 1) {
-                        end = json.length - 1;
-                    }
+
                 clearTable();
                 var tbody = document.querySelector("tbody");
                 json.forEach(function (item, i) {
