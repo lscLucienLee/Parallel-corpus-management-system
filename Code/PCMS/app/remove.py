@@ -28,6 +28,13 @@ class CorpusRemover:
                     seen_data.add(data_tuple)
                     deduplicated_corpus.append(row_dict)
 
+        # 将去重后的语料库数据写回到 CSV 文件中
+        with open(self.corpus_file_path, 'w', newline='', encoding='utf-8') as csv_file:
+            writer = csv.DictWriter(csv_file, fieldnames=header)
+            writer.writeheader()
+            for row in deduplicated_corpus:
+                writer.writerow(row)
+
         # 返回去重后的语料库数据
         return deduplicated_corpus
 
