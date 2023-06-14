@@ -1,46 +1,40 @@
 import csv
-import re
-from datetime import datetime
+import unicodedata
 
-class CorpusNormalizer:
-    def __init__(self, corpus_file_path):
-        self.corpus_file_path = corpus_file_path
-        self.log_file = "corpus_normalization_log.txt"
-        
-    def normalize_corpus(self):
-        with open(self.corpus_file_path, 'r', encoding='utf-8') as f:
-            reader = csv.reader(f)
-            content = [row for row in reader]
-        
-        normalized_content = self.normalize_content(content)
-        
-        with open(self.corpus_file_path, 'w', encoding='utf-8', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerows(normalized_content)
-        
-        self.log_operation()
-    
-    def normalize_content(self, content):
-        normalized_content = []
-        for row in content:
-            normalized_row = []
-            for text in row:
-                normalized_text = self.normalize_text(text)
-                normalized_row.append(normalized_text)
-            normalized_content.append(normalized_row)
-        return normalized_content
-    #这里只对空格和逗号进行了规范化
-    def normalize_text(self, text):
-        text = re.sub(r'\s', ' ', text)  # Replace all whitespace characters with a standard space
-        text = re.sub(r',', ',', text)  # Replace all types of commas with a standard comma
-        return text
-    
-    def log_operation(self):
-        with open(self.log_file, 'a', encoding='utf-8') as f:
-            f.write(f"Normalization operation on corpus '{self.corpus_file_path}' started at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-            f.write(f"Normalization operation on corpus '{self.corpus_file_path}' finished at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+class TextNormalizer:
+    def __init__(self, file_path):
+        self.file_path = file_path
 
-# if __name__ == "__main__":
-#     corpus_file_path = "your_corpus.csv"
-#     normalizer = CorpusNormalizer(corpus_file_path)
-#     normalizer.normalize_corpus()
+    def read_csv(self):
+        with open(self.file_path, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            data = [row for row in reader]
+        return data
+
+    def write_csv(self, data):
+        with open(self.file_path, 'w', newline='', encoding='utf-8') as csvfile:
+            fieldnames = ['id', 'original', 'translation']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            for row in data:
+                writer.writerow(row)
+
+    def normalize(self, text):
+        normalized_text = unicodedata.normalize('NFKD', text)
+        normalized_text = normalized_text.encode('ascii', 'ignore').decode('unicode_escape')
+        return normalized_text
+
+    def process_csv(self):
+        data = self.read_csv()
+        for row in data:
+            row['original'] = self.normalize(row['original'])
+            row['translation'] = self.normalize(row['translation'])
+        self.write_csv(data)
+
+# def main():
+#     file_path = 'corpus.csv'  # 指定CSV文件路径
+#     normalizer = TextNormalizer(file_path)
+#     normalizer.process_csv()
+
+# if __name__ == '__main__':
+#     main()
