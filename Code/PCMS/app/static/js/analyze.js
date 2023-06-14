@@ -4,7 +4,7 @@
 res:
 [
 {"corpus_number":"100"}
-{"id":"1","original":"词","translation":"word","frequencyId":"12"}//
+{"id":"1","translation":"word","frequencyId":"12"}//
 ...
 ]
 */
@@ -17,7 +17,6 @@ $(document).ready(function () {
         success: function (data) {
             console.log(data);
             // 处理响应数据
-
             let json = JSON.parse(data);
             json.forEach(function (item, i) {
                 if (i === 0) {
@@ -27,7 +26,6 @@ $(document).ready(function () {
                         let tr = document.createElement("tr");
                         tr.innerHTML = `
                             <td>${item.id}</td>
-                            <td>${item.original}</td>
                             <td>${item.translation}</td>
                             <td>${item.frequencyId}</td>
                             `
@@ -86,8 +84,6 @@ function frequency() {
 
     }
 }
-
-//鼠标放上去会解释查询
 function hover() {
     const button = document.querySelector('.btn.btn-default');
     const panel = document.querySelector('.panel.panel-default');
