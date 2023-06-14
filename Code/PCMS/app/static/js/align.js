@@ -1,10 +1,15 @@
 /*
 方法：get
 res:
+success:
 {
     "word_num":"4",
     "origin": ["那本","书","在","哪"],
     "translation": ["the","book", "is", "there"]
+}
+error:
+{
+    "error":"已达最后一条",
 }
 */
 let json;
