@@ -115,7 +115,7 @@ window.onload = function () {
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
-        `;
+            `;
             liAll = document.querySelectorAll("li.page_li");
             pageThis = 1; //当前是第几页
             for (let i = 1; i < liAll.length - 1; i++) {
@@ -290,8 +290,6 @@ window.onload = function () {
             // 处理错误
         }
     });
-
-
 }
 
 function getGrade() {
