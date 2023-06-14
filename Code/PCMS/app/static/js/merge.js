@@ -14,37 +14,6 @@ res
 
 let table = document.querySelector("table")
 //模拟后台响应的数据
-let json = [{
-    "id": "1001",
-    "original": "java核心技术1",
-    "standard_translation": "120",
-    "machine_translation": "res/productimg/1.jpeg"
-}, {
-    "id": "1002",
-    "original": "java核心技术2",
-    "standard_translation": "130",
-    "machine_translation": "res/productimg/2.jpeg"
-}, {
-    "id": "1003",
-    "original": "java核心技术2",
-    "standard_translation": "130",
-    "machine_translation": "res/productimg/2.jpeg"
-}, {
-    "id": "1004",
-    "original": "java核心技术2",
-    "standard_translation": "130",
-    "machine_translation": "res/productimg/2.jpeg"
-}, {
-    "id": "1005",
-    "original": "java核心技术2",
-    "standard_translation": "130",
-    "machine_translation": "res/productimg/2.jpeg"
-}, {
-    "id": "1006",
-    "original": "java核心技术2",
-    "standard_translation": "130",
-    "machine_translation": "res/productimg/2.jpeg"
-}];
 let ul = document.querySelector(".pagination");
 let page_number = 5; //单页浏览的条数
 let Total_pages; //页数
@@ -57,15 +26,15 @@ let end; //当页数据的结束下标
 function clearTable() {
     table.innerHTML = `
             <tbody>
-                <th>序号</th>
-                <th>原文</th>
-                <th>语料库参考译文</th>
-                <th>机器翻译译文</th>
-                <th id="hoverId">打分</th>
-            </tbody>
+             <tr>
+                <th style="width:40px">#</th>
+          <th style="width:320px;text-align: center">语料库名</th>
+          <th style="width:320px;text-align: center ">创建时间</th>
+          <th style="width:120px;text-align: center ">是否选择合并</th>
+            </tr>
+        </tbody>
         `
 }
-
 
 window.onload = function () {
     $.ajax({
@@ -77,27 +46,17 @@ window.onload = function () {
             // 处理响应数据
             let json = JSON.parse(data);
             json.forEach(function (item, i) {
-                item.value = 0;
+                item.checked = false;
             })
             json.forEach(function (item, i) {
                 let tbody = document.querySelector("tbody");
                 if (i < page_number) {
                     let tr = document.createElement("tr");
                     tr.innerHTML = `
-                            <td>${item.id}</td>
-                            <td>${item.original}</td>
-                            <td>${item.standard_translation}</td>
-                            <td>${item.machine_translation}</td>
-                            <td>
-                                <select id="${item.id}" name="${item.id}">
-                                    <option value="${item.value}">${item.value}</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </td>
+                            <td>${item.nid}</td>
+                            <td>${item.name}</td>
+                            <td>${item.time}</td>
+                            <td><input id="${item.nid}" name="${item.nid}" checked=false type="checkbox" style="margin-left: 40px"></td>
                             `
                     tbody.appendChild(tr);
                 }
@@ -115,7 +74,7 @@ window.onload = function () {
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
-            `;
+        `;
             liAll = document.querySelectorAll("li.page_li");
             pageThis = 1; //当前是第几页
             for (let i = 1; i < liAll.length - 1; i++) {
@@ -132,8 +91,7 @@ window.onload = function () {
                     }
                     json.forEach(function (item, i) {
                         if (i >= start && i <= end) {
-                            let index = document.getElementById(item.id).selectedIndex;
-                            item.value = document.getElementById(item.id).options[index].value;
+                            item.checked = document.getElementById(item.id).checked;
                         }
                     })
                     // for (let j = 1; j < liAll.length - 1; j++) {
@@ -158,20 +116,10 @@ window.onload = function () {
                         if (i >= start && i <= end) {
                             let tr = document.createElement("tr");
                             tr.innerHTML = `
-                            <td>${item.id}</td>
-                            <td>${item.original}</td>
-                            <td>${item.standard_translation}</td>
-                            <td>${item.machine_translation}</td>
-                            <td>
-                                <select id="${item.id}" name="${item.id}">
-                                    <option value="${item.value}">${item.value}</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </td>
+                            <td>${item.nid}</td>
+                            <td>${item.name}</td>
+                            <td>${item.time}</td>
+                            <td><input id="${item.nid}" name="${item.nid}" checked=false type="checkbox" style="margin-left: 40px"></td>
                             `
                             tbody.appendChild(tr);
                         }
@@ -190,8 +138,7 @@ window.onload = function () {
                     }
                     json.forEach(function (item, i) {
                         if (i >= start && i <= end) {
-                            let index = document.getElementById(item.id).selectedIndex;
-                            item.value = document.getElementById(item.id).options[index].value;
+                            item.checked = document.getElementById(item.id).checked;
                         }
                     })
                     pageThis--;
@@ -206,20 +153,10 @@ window.onload = function () {
                         if (i >= start && i <= end) {
                             let tr = document.createElement("tr");
                             tr.innerHTML = `
-                            <td>${item.id}</td>
-                            <td>${item.original}</td>
-                            <td>${item.standard_translation}</td>
-                            <td>${item.machine_translation}</td>
-                            <td>
-                                <select id="${item.id}" name="${item.id}">
-                                    <option value="${item.value}">${item.value}</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </td>
+                            <td>${item.nid}</td>
+                            <td>${item.name}</td>
+                            <td>${item.time}</td>
+                            <td><input id="${item.nid}" name="${item.nid}" checked=false type="checkbox" style="margin-left: 40px"></td>
                             `
                             tbody.appendChild(tr);
                         }
@@ -243,8 +180,8 @@ window.onload = function () {
                     }
                     json.forEach(function (item, i) {
                         if (i >= start && i <= end) {
-                            let index = document.getElementById(item.id).selectedIndex;
-                            item.value = document.getElementById(item.id).options[index].value;
+
+                            item.checked = document.getElementById(item.id).checked;
                         }
                     })
                     pageThis++;
@@ -261,20 +198,10 @@ window.onload = function () {
                         if (i >= start && i <= end) {
                             let tr = document.createElement("tr");
                             tr.innerHTML = `
-                            <td>${item.id}</td>
-                            <td>${item.original}</td>
-                            <td>${item.standard_translation}</td>
-                            <td>${item.machine_translation}</td>
-                            <td>
-                                <select id="${item.id}" name="${item.id}">
-                                    <option value="${item.value}">${item.value}</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </td>
+                            <td>${item.nid}</td>
+                            <td>${item.name}</td>
+                            <td>${item.time}</td>
+                            <td><input id="${item.nid}" name="${item.nid}" checked=false type="checkbox" style="margin-left: 40px"></td>
                             `
                             tbody.appendChild(tr);
                         }
@@ -292,7 +219,7 @@ window.onload = function () {
     });
 }
 
-function getGrade() {
+function post(){
     if (pageThis > 1) {
         start = (pageThis - 1) * page_number;
         end = start + page_number - 1;
@@ -305,17 +232,31 @@ function getGrade() {
     }
     json.forEach(function (item, i) {
         if (i >= start && i <= end) {
-            let index = document.getElementById(item.id).selectedIndex;
-            item.value = document.getElementById(item.id).options[index].value;
+
+            item.checked = document.getElementById(item.nid).checked;
         }
     })
-    let total = 1;
-    total--;
-    json.forEach(function (item, i) {
-        item.value = parseInt(item.value, 10);
-        total = total + item.value;
-    })
-    console.log(total);
-    let result = (total / json.length).toFixed(2);
-    $("#gradeId").text(result);
+    var data0=[];
+     json.forEach(function (item, i) {
+      if(item.checked==true)
+      { data0.push(item.name);
+
+
+        }
+   $.ajax({
+            url: '/index/', //后端地址
+            type: 'POST',       //提交方式
+            data:  data0
+            ,
+            dataType: 'text',       //规定请求成功后返回的数据
+            success: function (data) {
+                //请求成功之后进入该方法，data为成功后返回的数据
+            },
+            error: function (errorMsg) {
+                //请求失败之后进入该方法，errorMsg为失败后返回的错误信息
+            }
+        });
+
+
+   }
 }
