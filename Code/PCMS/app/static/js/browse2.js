@@ -1,12 +1,30 @@
 function openwindow(){
-		var r = confirm("确认删除吗？")
+		var r = confirm("确认删除嘛？")
 		if (r == true) {
-		window.location.href="#"
+		window.location.href=""
 		} else {
 
 		}
 	}
 function search(){
+       var json;
+     json.forEach(function (item, i) {
+            var tbody = document.querySelector("tbody");
+            if (i < page_number) {
+                var tr = document.createElement("tr");
+                tr.innerHTML = `
+                            <td style="width: 50px">${item.id}</td>
+                            <td style="width: 400px">${item.original}</td>
+                            <td style="width: 400px">${item.translation}</td>
+                            <td style="width:140px">
+             <a href="/update/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">更新</button></a>
+             <a href="/delete_corpus/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">删除</button></a>
+          </td>
+                            `
+                tbody.appendChild(tr);
+            }
+
+        })
     let wordVal = $('input[name="word"]').val();
     if (wordVal === " ") {
         alert("请输入查询内容！");
@@ -17,18 +35,13 @@ function search(){
         };
         requestBody.word = wordVal;
         $.ajax({
-            url: '/path/to/resource',
+            url: '/browse/data/',
             type: 'POST',
             data: requestBody,
-            dataType: 'json',
-            success: function (data) {
-                var table = document.querySelector("table")
-                $.ajax({
-            url: '/browse/data/',
-            type: 'GET',
             dataType: 'text',
             success: function (data) {
-                console.log(data);
+                var table = document.querySelector("table")
+                  console.log(data);
                 // 处理响应数据
                 let json = JSON.parse(data);
                 var ul = document.querySelector(".pagination");
@@ -60,8 +73,8 @@ function search(){
                             <td style="width: 400px">${item.original}</td>
                             <td style="width: 400px">${item.translation}</td>
                             <td style="width:140px">
-             <a href="/update/"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">??</button></a>
-              <button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">??</button>
+             <a href="/update/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">更新</button></a>
+             <a href="/delete_corpus/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">删除</button></a>
           </td>
                             `
                 tbody.appendChild(tr);
@@ -122,8 +135,8 @@ function search(){
                             <td style="width: 400px">${item.original}</td>
                             <td style="width: 400px">${item.translation}</td>
                             <td style="width:140px">
-             <a href="/update/"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">??</button></a>
-              <button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">??</button>
+             <a href="/update/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">更新</button></a>
+             <a href="/delete_corpus/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">删除</button></a>
           </td>
                             `
                         tbody.appendChild(tr);
@@ -165,8 +178,8 @@ function search(){
                             <td style="width: 400px">${item.original}</td>
                             <td style="width: 400px">${item.translation}</td>
                             <td style="width:140px">
-             <a href="/update/"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">??</button></a>
-              <button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">??</button>
+             <a href="/update/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">更新</button></a>
+             <a href="/delete_corpus/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">删除</button></a>
           </td>
                             `
                         console.log(tr)
@@ -207,8 +220,8 @@ function search(){
                             <td style="width: 400px">${item.original}</td>
                             <td style="width: 400px">${item.translation}</td>
                             <td style="width:140px">
-             <a href="/update/"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">??</button></a>
-              <button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">??</button>
+             <a href="/update/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">更新</button></a>
+             <a href="/delete_corpus/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">删除</button></a>
           </td>
                             `
                         console.log(tr)
@@ -217,8 +230,6 @@ function search(){
                 })
             }
         }
-            }
-        })
 
                 // 处理响应数据
             },
