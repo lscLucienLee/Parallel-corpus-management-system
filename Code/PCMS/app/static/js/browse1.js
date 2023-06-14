@@ -3,7 +3,7 @@
     //模拟后台响应的数据
     $(document).ready(function () {
         $.ajax({
-            url: '/browse/data/',
+            url: '/manage/data/',
             type: 'GET',
             dataType: 'text',
             success: function (data) {
@@ -11,7 +11,7 @@
                 // 处理响应数据
                 let json = JSON.parse(data);
                 var ul = document.querySelector(".pagination");
-        var page_number = 10; //单页浏览的条数
+        var page_number = 3; //单页浏览的条数
         var Total_pages; //页数
         var liAll; //页码按钮下标为 1到length-2是页数 0和length-1为上一页和下一页
         var pre; //上一页
@@ -26,7 +26,7 @@
           <th style="width: 400px">译文</th>
           <th style="width: 140px">操作</th>
             </tr>
-        </tbody
+        </tbody>
         `
         }
 
@@ -39,8 +39,8 @@
                             <td style="width: 400px">${item.original}</td>
                             <td style="width: 400px">${item.translation}</td>
                             <td style="width:140px">
-             <a href="/update/"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">??</button></a>
-              <button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">??</button>
+             <a href="/update/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">更新</button></a>
+             <a href="/delete_corpus/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">删除</button></a>
           </td>
                             `
                 tbody.appendChild(tr);
@@ -101,8 +101,8 @@
                             <td style="width: 400px">${item.original}</td>
                             <td style="width: 400px">${item.translation}</td>
                             <td style="width:140px">
-             <a href="/update/"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">??</button></a>
-              <button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">??</button>
+             <a href="/update/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">更新</button></a>
+             <a href="/delete_corpus/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">删除</button></a>
           </td>
                             `
                         tbody.appendChild(tr);
@@ -144,8 +144,8 @@
                             <td style="width: 400px">${item.original}</td>
                             <td style="width: 400px">${item.translation}</td>
                             <td style="width:140px">
-             <a href="/update/"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">??</button></a>
-              <button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">??</button>
+             <a href="/update/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">更新</button></a>
+             <a href="/delete_corpus/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">删除</button></a>
           </td>
                             `
                         console.log(tr)
@@ -186,8 +186,8 @@
                             <td style="width: 400px">${item.original}</td>
                             <td style="width: 400px">${item.translation}</td>
                             <td style="width:140px">
-             <a href="/update/"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">??</button></a>
-              <button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">??</button>
+             <a href="/update/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC">更新</button></a>
+             <a href="/delete_corpus/?nid=${item.id}"><button type="button" class="btn btn-default btn-sm" style="width:50px;height:25px;background-color:#DCDCDC" onclick="openwindow()">删除</button></a>
           </td>
                             `
                         console.log(tr)
