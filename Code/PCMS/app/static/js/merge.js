@@ -236,13 +236,24 @@ function post(){
             item.checked = document.getElementById(item.nid).checked;
         }
     })
+    var data3={};
      json.forEach(function (item, i) {
-      if(item.checked=true)
-     $.ajax({
+      if(item.checked==true)
+      {var data1=data3;
+      var data2={"name":item.name};
+      for (var key in data1) {
+     data3[key] = filterData[key];
+    }
+
+    for (var key in data2) {
+      data3[key] = filterData1[key];
+    }
+}
+   $.ajax({
             url: '/index/', //后端地址
             type: 'POST',       //提交方式
-            data: {  "name":item.name
-            },
+            data:  data3
+            ,
             dataType: 'text',       //规定请求成功后返回的数据
             success: function (data) {
                 //请求成功之后进入该方法，data为成功后返回的数据
