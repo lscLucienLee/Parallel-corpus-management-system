@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对齐</title>
+   <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
+  <script src="../static/js/jQuery.js"></script>
+  <script src="../static/plugins/bootstrap/js/bootstrap.js"></script>
+  <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .navbar{
+        border-radius:0;
+        }
+    .borderText {
+    display:inline-block;
+    border:1px solid rgb(108, 117, 125);
+    padding:8px;
+    border-radius: 6px;
+    color: rgb(108, 117, 125);
+    font-family: Inter;
+    font-size: 14px;
+    }
+
+    table,tr,td,th {
+    border:1px solid rgb(108, 117, 125);
+    color: rgb(108, 117, 125);
+    font-family: Inter;
+    font-size: 14px;
+    text-align: center; /* 将单元格中的文本水平居中 */
+    }
+    td, tr, th {
+      vertical-align: middle; /* 将单元格中的内容垂直居中 */
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                  data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand" >平行语料库管理系统</div>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+          <ul class="nav navbar-nav">
+          </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">主页</a></li>
+        <li><a href="#">登出</a></li>
+       <li><a href="#">返回上一步</a></li>
+      </ul>
+        </div></div>
+</nav>
+
+<h3 style="margin-left:20px;color: rgb(0, 0, 0);font-family: Inter;font-size: 30px;font-weight: 800;">
+    当前语料库：{{ corpus_name }}
+</h3>
+
+<div class="container" style="width:1000px;margin-top:150px;margin-bottom:150px;">
+    <table class="table table-bordered" style="width:800px">
+    <thead>
+    <tr><th>平行语料</th></tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+    <button type="button" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;margin-left:100px;" onclick="next()">下一条</button>
+</div>
+
+<div class="container">
+    <button type="button" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;" onclick="downloadFile()">确定</button>
+</div>
+
+
+<div class="footer">
+
+</div>
+
+<script src="../static/js/align.js"></script>
+
+</body>
+</html>

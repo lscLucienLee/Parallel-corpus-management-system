@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户界面</title>
+    <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
+    <style>
+       .navbar{
+        border-radius:0;
+        }
+       .bs-example{
+        width:1100px;
+         margin:auto auto;
+       }
+
+
+
+       .window .w{
+         width:280px;
+         position: relative;
+         height:110px;
+         right: -600px;
+         top:-50px;
+         display: none;
+       }
+      .window:hover .w{
+      display: block;
+      }
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+
+            <div class="navbar-brand">平行语料库管理系统</div>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/manage/">主页</a></li>
+                <li><a href="/login/">登出</a></li>
+                <li><a href="/manage/">返回上一步</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div style="height:50px"></div>
+<div class="bs-example" data-example-id="table-within-panel">
+    <div class="panel panel-default">
+
+        <div class="panel-body" style="height: 200px">
+            <p>
+            <h3 style="text-align: center">欢迎使用平行语料管理系统</h3>
+            <div style="width:658px;margin:auto;text-align: center">我们的平行语料管理系统有创建、删除、过滤、查重、统计分析、翻译评价等多种功能，我们有自己的数据库可以保存
+                用户的语料数据，旨在提高用户们的体验，如果有任何使用过程中的建议，欢迎向我们反馈。
+            </div>
+            </p>
+        </div>
+
+        <!-- Table -->
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>ID</th>
+                <th style="width: 180px">语料库名</th>
+                <th style="width: 200px">新建时间</th>
+                <th style="text-align: center">操作</th>
+            </tr>
+            </tbody>
+            <tbody>
+
+        </table>
+    </div>
+</div>
+
+<nav aria-label="Page navigation" style="margin-top:-10px;margin-left: 650px">
+    <ul class="pagination">
+        <li id="pre">
+            <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+
+    </ul>
+</nav>
+
+
+<div style="width:900px;margin-left:auto;margin-right:auto;margin-top:100px;height: 35px">
+    <a href="/create/manual/">
+        <button type="button" class="btn btn-default "
+                style="width: 150px;background-color:lightslategray;">手动输入创建语料库
+        </button>
+    </a>
+    <a href="/create/file/">
+        <button type="button" class="btn btn-default "
+                style="width: 150px;background-color:lightslategray;margin-left: 100px">导入文件创建语料库
+        </button>
+    </a>
+    <a href="/merge/">
+        <button type="button" class="btn btn-default "
+                style="width: 100px;background-color:lightslategray;margin-left: 100px">合并语料库
+        </button>
+    </a>
+    <a href="/divide/">
+        <button type="button" class="btn btn-default "
+                style="width: 100px;background-color:lightslategray;margin-left: 100px">拆分语料库
+        </button>
+    </a>
+</div>
+
+
+<script src="../static/js/jQuery.js"></script>
+<script src="../static/plugins/bootstrap/js/bootstrap.js"></script>
+<script src="../static/js/manage.js">
+</script>
+
+</body>
+</html>

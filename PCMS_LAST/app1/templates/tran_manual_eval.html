@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>翻译人工评价</title>
+    <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
+    <script src="../static/js/jQuery.js"></script>
+    <script src="../static/js/tran-manual-eval.js"></script>
+    <script src="../static/plugins/bootstrap/js/bootstrap.js"></script>
+    <style>
+        .container {
+            position: relative;
+        }
+
+        .borderText {
+            border: 1px solid rgb(108, 117, 125);
+            padding: 8px;
+            border-radius: 6px;
+            color: rgb(108, 117, 125);
+            font-family: Inter;
+            font-size: 14px;
+        }
+
+        .navbar {
+            border-radius: 0;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand">平行语料库管理系统</div>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">主页</a></li>
+                <li><a href="#">登出</a></li>
+                <li><a href="#">返回上一步</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<h3 style="margin-left:20px;color: rgb(0, 0, 0);font-family: Inter;font-size: 30px;font-weight: 800;">
+    当前语料库：{{ corpus_name }}
+</h3>
+
+
+<div class="container" style="width: 707px;height: 300px;margin-top:40px;margin-bottom:40px;margin-top:100px">
+    <div style="color: rgb(108, 117, 125);font-family: Inter;font-size: 14px;">
+        上传机器翻译文件
+    </div>
+    <form action="/upload/manual/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div id="filename" style="height:168px;width:677px;border:1px solid rgb(108, 117, 125);border-radius: 6px;">
+        </div>
+        <label for="file" style="background-color:#DCDCDC;float:right;margin-top:10px" class="borderText">
+            上传文件
+            <input type="file" id="file" name="file" style="display:none" onchange="getfile()">
+        </label>
+        <button type="submit" class="btn btn-default dropdown-toggle"
+                style="background-color:#DCDCDC;margin-left:50%;transform: translateX(-50%);margin-top:150px">翻译人工评价
+        </button>
+    </form>
+
+<!--<form method="post" action="/upload/" enctype="multipart/form-data">-->
+<!--    {% csrf_token %}-->
+<!--    <input type="file" name="file">-->
+<!--    <button type="submit">上传文件</button>-->
+</div>
+
+
+<div class="footer">
+
+</div>
+
+</body>
+</html>

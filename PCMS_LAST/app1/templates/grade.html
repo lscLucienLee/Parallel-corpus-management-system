@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翻译人工打分</title>
+    <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
+    <script src="../static/js/jQuery.js"></script>
+    <script src="../static/plugins/bootstrap/js/bootstrap.js"></script>
+
+    <script>
+
+    </script>
+    <script>
+    $("#hoverId").hover(
+      function() {
+        $("#panelId").addClass("view");
+      },
+      function() {
+        $("#panelId").removeClass("view");
+      }
+    );
+
+    </script>
+    <style>
+    page_li{
+    }
+    table,tr,td,th {
+    border:1px solid rgb(108, 117, 125);
+    color: rgb(108, 117, 125);
+    font-family: Inter;
+    font-size: 14px;
+    text-align: center; /* 将单元格中的文本水平居中 */
+    }
+    td, tr, th {
+      vertical-align: middle; /* 将单元格中的内容垂直居中 */
+    }
+    .view{
+    visibility:visible!important;
+    }
+    .text{
+    color: rgb(108, 117, 125);
+    font-family: Inter;
+    font-size: 14px;
+    }
+    .navbar{
+        border-radius:0;
+    }
+
+
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand">平行语料库管理系统</div>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">主页</a></li>
+                <li><a href="#">登出</a></li>
+                <li><a href="#">返回上一步</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<h3 style="margin-left:20px;color: rgb(0, 0, 0);font-family: Inter;font-size: 30px;font-weight: 800;">
+    当前语料库：{{ corpus_name }}
+</h3>
+
+
+<div class="container" style="width: 900px;height: 38px;margin-top:150px;margin-bottom:40px;">
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>原文</th>
+            <th>语料库参考译文</th>
+            <th>机器翻译译文</th>
+            <th id="hoverId">打分</th>
+        </tr>
+        </thead>
+        <tbody>
+    </table>
+
+    <nav aria-label="Page navigation"
+         style="padding:0;display: flex;justify-content: center;margin-top:0;margin-bottom:0;">
+        <ul id="page_ul" class="pagination" style="margin-top:0;margin-bottom:0;">
+            <li id="pre" class="page_li">
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+
+
+        </ul>
+    </nav>
+    <button type="button" class="btn btn-default dropdown-toggle"
+            style="background-color:#DCDCDC;margin-left:50%;transform: translateX(-50%);margin-top:30px"
+            onclick="getGrade()">计算最终得分
+    </button>
+
+    <div style="text-align:center;color: rgb(108, 117, 125);font-family: Inter;font-size: 14px;margin-top:30px">
+        最终得分为：
+        <span id="gradeId"
+              style="display:inline-block;border:1px solid rgb(108, 117, 125);border-radius: 6px;height:30px;width:40px">0</span>
+    </div>
+
+</div>
+
+<div id="panelId" class="panel panel-default"
+     style="position:absolute;top:80px;width:200px;margin-left:75%;display:inline-block;">
+    <div class="panel-heading">人工评价</div>
+    <div class="panel-body">
+        对机器翻译的结果做出人工评判：
+        0分 ---------- > 5分
+        非常不好--------- > 很好
+        注意：若某条平行语料未打分，则默认为零分！
+    </div>
+</div>
+
+<div class="footer">
+
+</div>
+<script src="../static/js/grade.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

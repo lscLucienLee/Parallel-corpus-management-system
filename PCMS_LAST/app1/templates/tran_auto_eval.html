@@ -48,7 +48,7 @@
         </div></div>
 </nav>
 <h3 style="margin-left:20px;color: rgb(0, 0, 0);font-family: Inter;font-size: 30px;font-weight: 800;">
-    当前语料库：陈怀宇
+    当前语料库：{{ corpus_name }}
 </h3>
 
 
@@ -56,7 +56,7 @@
     <div style="color: rgb(108, 117, 125);font-family: Inter;font-size: 14px;">
         上传机器翻译文件
     </div>
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="/upload/auto/" method="post" enctype="multipart/form-data">
         <div id="filename" style="height:168px;width:677px;border:1px solid rgb(108, 117, 125);border-radius: 6px;">
 
         </div>
@@ -64,11 +64,6 @@
                 上传文件
                 <input type="file" id="file" name="file" style="display:none" onchange="getfile()">
             </label>
-
-
-
-
-
         <div class="panel panel-default" style="position:relative;width:1200px;margin-top:150px;left:-261.5px">
 
           <div class="panel-heading">翻译自动评价</div>
@@ -80,7 +75,6 @@
         </form>
 
 </div>
-
 
 
 <div style="text-align:center;color: rgb(108, 117, 125);font-family: Inter;font-size: 14px;margin-top:220px">
@@ -96,13 +90,12 @@
 <script>// 假设你有一个 form 表单，id 为 myForm
     function get_eval() {
         $.ajax({
-            url: '/align/',
+            url: '/auto/data/',
             type: 'GET',
             dataType: 'text',
             success: function (data) {
                 console.log(data);
-                let eval=document.getElementById("eval_id")
-                eval.text(data);
+                $("#eval_id").text(data);
             },
             error: function (xhr, textStatus, errorThrown) {
                 console.log("Error: " + errorThrown);

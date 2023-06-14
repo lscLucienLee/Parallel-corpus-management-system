@@ -1,5 +1,6 @@
 import csv
 
+
 class CorpusRemover:
     def __init__(self, corpus_file_path):
         self.corpus_file_path = corpus_file_path

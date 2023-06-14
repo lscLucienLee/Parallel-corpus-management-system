@@ -1,0 +1,6 @@
+Normalization operation on corpus 'D:\py code\PCMS\app1\corpusFiles\chy_999.csv' started at 2023-06-12 09:29:37
+Normalization operation on corpus 'D:\py code\PCMS\app1\corpusFiles\chy_999.csv' finished at 2023-06-12 09:29:37
+
+Normalization operation on corpus 'D:\py code\PCMS\app1\corpusFiles\chy_999.csv' started at 2023-06-12 09:33:07
+Normalization operation on corpus 'D:\py code\PCMS\app1\corpusFiles\chy_999.csv' finished at 2023-06-12 09:33:07
+

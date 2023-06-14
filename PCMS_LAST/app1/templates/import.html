@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导入文件创建语料库</title>
+    <base href="/">
+    <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
+    <script src="../static/js/jQuery.js"></script>
+    <script src="../static/plugins/bootstrap/js/bootstrap.js"></script>
+    <style>
+    .container {
+       position:relative;
+    }
+    .borderText {
+      border:1px solid rgb(108, 117, 125);
+      padding:8px;
+      border-radius: 6px;
+      color: rgb(108, 117, 125);
+      font-family: Inter;
+      font-size: 14px;
+    }
+    .navbar{
+        border-radius:0;
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand">平行语料库管理系统</div>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">主页</a></li>
+                <li><a href="#">登出</a></li>
+                <li><a href="#">返回上一步</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<h3 style="margin-left:20px;color: rgb(0, 0, 0);font-family: Inter;font-size: 30px;font-weight: 800;">
+    当前语料库：{{ corpus_name }}
+</h3>
+
+
+<div class="container" style="width: 707px;height: 300px;margin-top:40px;margin-bottom:40px;margin-top:100px">
+    <div style="color: rgb(108, 117, 125);font-family: Inter;font-size: 14px;">
+        上传本地文件：txt格式，以逗号分列
+    </div>
+    <form action="/upload/import/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div id="filename" style="height:168px;width:677px;border:1px solid rgb(108, 117, 125);border-radius: 6px;">
+        </div>
+        <label for="file" style="background-color:#DCDCDC;float:right;margin-top:10px" class="borderText">
+            上传文件
+            <input type="file" id="file" name="file" style="display:none">
+        </label>
+        <div class="panel panel-default" style="margin-top:100px">
+
+            <div class="panel-heading">语料库文件名</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name">
+                </div>
+                <button id="myForm" type="submit" class="btn btn-default dropdown-toggle"
+                        style="background-color:#DCDCDC;float:right">确定
+                </button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<a href="/manage/">
+    <div style="text-align:center;color: rgb(108, 117, 125);font-family: Inter;font-size: 14px;margin-top:220px">
+        <button type="button" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;">
+            创建
+        </button>
+    </div>
+</a>
+</body>
+</html>

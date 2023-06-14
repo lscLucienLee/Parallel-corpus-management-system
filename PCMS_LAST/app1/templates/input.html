@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建语料库界面(手动输入)</title>
+    <base href="/">
+    <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.css">
+    <script src="../static/js/jQuery.js"></script>
+    <script src="../static/plugins/bootstrap/js/bootstrap.js"></script>
+    <style>
+        .navbar {
+            border-radius: 0;
+        }
+
+        .header {
+            margin-top: 80px;
+            height: 40px;
+        }
+
+        .middle {
+
+            height: 120px;
+            margin-top: 160px;
+        }
+
+        .heading {
+            margin-left: auto;
+            margin-right: auto;
+            width: 900px
+
+        }
+
+        .button {
+            width: 600px;
+            height: 35px;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <div class="navbar-brand">平行语料库管理系统</div>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/manage/">主页</a></li>
+                <li><a href="/login/">登出</a></li>
+                <li><a href="/manage/">返回上一步</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<form method="post" name="f1" action="/last_or_next/">
+    <div class="header">
+        <div style="margin-left: 580px;font-size:15px;line-height:40px;float: left">语料库名称</div>
+        <div>
+            <input type="text" placeholder="请输入"
+                   style="font-size:16px;width:220px;margin-top:3px ;line-height:25px;margin-left: 10px"
+                   name="corpus_name" value="{{ corpus_name }}">
+            <span style="color: red">{{ corpus_name_null }}</span>
+        </div>
+    </div>
+    {% csrf_token %}
+    <div class="middle">
+        <div class="panel panel-default heading">
+            <div class="panel-heading ">
+                <h3 class="panel-title" style="text-align: center">平行语料</h3>
+            </div>
+        </div>
+        <div class="panel panel-default heading" style="margin-top:-20px;width:450px;margin-left:310px;float: left">
+            <div class="panel-body" style="height:50px ">
+                <input type="text" style="width: 440px;line-height:34px;margin-top:-8px;margin-left:-10px" name="left"
+                       value={{ left }}>
+            </div>
+        </div>
+
+        <div class="panel panel-default heading" style="margin-top:-20px;width:450px;float: left">
+            <div class="panel-body" style="height:50px ">
+                <input type="text" style="width: 440px;line-height:34px;margin-top:-8px;margin-left:-10px" name="right"
+                       value={{ right }}>
+            </div>
+
+        </div>
+    </div>
+    <div style="clear: both"></div>
+    <div class="button">
+        <button type="submit" class="btn btn-default " style="width: 150px;background-color:#DCDCDC;float: left"
+                name="last" formaction="/last_or_next/?choice=0">上一条
+        </button>
+        <span style="color: red">
+            {{ left_null }}
+        </span>
+        <button type="submit" class="btn btn-default " style="width: 150px;background-color:#DCDCDC;float: right"
+                name="next" formaction="/last_or_next/?choice=1">下一条
+        </button>
+        <span style="color: red">
+            {{ right_null }}
+        </span>
+    </div>
+
+    <div style="width:100px;height:35px;margin-left: auto;margin-right: auto;margin-top:120px">
+        <button type="submit" class="btn btn-success " style="width: 100px;" formaction="/create/">创建</button>
+    </div>
+</form>
+</body>
+</html>

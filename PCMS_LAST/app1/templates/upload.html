@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/upload/" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="file">
+    <button type="submit">上传文件</button>
+</form>
+<a href="/download/machine_test.csv/">
+    <button type="button">下载文件</button>
+</a>
+</body>
+</html>
