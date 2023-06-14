@@ -70,7 +70,7 @@
           <div class="panel-heading">翻译自动评价</div>
           <div class="panel-body">
             你选择翻译自动评价操作后，可以将机器翻译结果上传到系统中，系统会将本语料库作为参考，对两者进行比较分析，并给出自动评价结果。
-              <button type="submit" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;float:right" >翻译自动评价</button>
+              <button id="myForm" type="submit" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;float:right" >翻译自动评价</button>
           </div>
         </div>
     </form>
@@ -87,5 +87,34 @@
 
 </div>
 
+<script>// 假设你有一个 form 表单，id 为 myForm
+const form = document.querySelector('#myForm');
+
+// 添加表单提交事件监听器
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  // 创建 FormData 对象
+  const formData = new FormData(this);
+
+  // 发送 AJAX 请求
+  $.ajax({
+    url: '/submit',
+    type: 'POST',
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function(data) {
+      // 处理后端传回的数据
+      console.log(data);
+    },
+    error: function(xhr, textStatus, errorThrown) {
+      console.error("Error: " + errorThrown);
+      // 处理错误
+    }
+  });
+});
+
+</script>
 </body>
 </html>
