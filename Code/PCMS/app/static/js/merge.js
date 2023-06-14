@@ -56,7 +56,7 @@ window.onload = function () {
                             <td>${item.nid}</td>
                             <td>${item.name}</td>
                             <td>${item.time}</td>
-                            <td><input id="${item.id}" name="${item.id}" checked=false type="checkbox" style="margin-left: 40px"></td>
+                            <td><input id="${item.nid}" name="${item.nid}" checked=false type="checkbox" style="margin-left: 40px"></td>
                             `
                     tbody.appendChild(tr);
                 }
@@ -91,7 +91,7 @@ window.onload = function () {
                     }
                     json.forEach(function (item, i) {
                         if (i >= start && i <= end) {
-                            item.value = document.getElementById(item.id).checked;
+                            item.checked = document.getElementById(item.id).checked;
                         }
                     })
                     // for (let j = 1; j < liAll.length - 1; j++) {
@@ -119,7 +119,7 @@ window.onload = function () {
                             <td>${item.nid}</td>
                             <td>${item.name}</td>
                             <td>${item.time}</td>
-                            <td><input id="${item.id}" name="${item.id}" checked=false type="checkbox" style="margin-left: 40px"></td>
+                            <td><input id="${item.nid}" name="${item.nid}" checked=false type="checkbox" style="margin-left: 40px"></td>
                             `
                             tbody.appendChild(tr);
                         }
@@ -138,7 +138,7 @@ window.onload = function () {
                     }
                     json.forEach(function (item, i) {
                         if (i >= start && i <= end) {
-                            item.value = document.getElementById(item.id).checked;
+                            item.checked = document.getElementById(item.id).checked;
                         }
                     })
                     pageThis--;
@@ -156,7 +156,7 @@ window.onload = function () {
                             <td>${item.nid}</td>
                             <td>${item.name}</td>
                             <td>${item.time}</td>
-                            <td><input id="${item.id}" name="${item.id}" checked=false type="checkbox" style="margin-left: 40px"></td>
+                            <td><input id="${item.nid}" name="${item.nid}" checked=false type="checkbox" style="margin-left: 40px"></td>
                             `
                             tbody.appendChild(tr);
                         }
@@ -181,7 +181,7 @@ window.onload = function () {
                     json.forEach(function (item, i) {
                         if (i >= start && i <= end) {
 
-                            item.value = document.getElementById(item.id).checked;
+                            item.checked = document.getElementById(item.id).checked;
                         }
                     })
                     pageThis++;
@@ -201,7 +201,7 @@ window.onload = function () {
                             <td>${item.nid}</td>
                             <td>${item.name}</td>
                             <td>${item.time}</td>
-                            <td><input id="${item.id}" name="${item.id}" checked=false type="checkbox" style="margin-left: 40px"></td>
+                            <td><input id="${item.nid}" name="${item.nid}" checked=false type="checkbox" style="margin-left: 40px"></td>
                             `
                             tbody.appendChild(tr);
                         }
@@ -236,23 +236,17 @@ function post(){
             item.checked = document.getElementById(item.nid).checked;
         }
     })
-    var data3={};
+    var data0=[];
      json.forEach(function (item, i) {
       if(item.checked==true)
-      {var data1=data3;
-      var data2={item.name};
-      for (var key in data1) {
-     data3[key] = filterData[key];
-    }
+      { data0.push(item.name);
 
-    for (var key in data2) {
-      data3[key] = filterData1[key];
-    }
-}
+
+        }
    $.ajax({
             url: '/index/', //后端地址
             type: 'POST',       //提交方式
-            data:  data3
+            data:  data0
             ,
             dataType: 'text',       //规定请求成功后返回的数据
             success: function (data) {
