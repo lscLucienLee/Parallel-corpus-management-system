@@ -56,10 +56,13 @@
 </nav>
 
    <div class="header">
+       <form method="post">
+           {% csrf_token %}
          <div style="margin-left: 580px;font-size:15px;line-height:40px;float: left">合并后语料库名称</div>
          <div>
              <input type="text" placeholder="请输入" style="font-size:16px;width:180px;margin-top:7px ;line-height:20px;margin-left: 10px">
          </div>
+       </form>
      </div>
 
 
@@ -89,7 +92,7 @@
         </nav>
 
    <div class="button">
-<button type="button"  class="btn btn-default " style="background-color:#DCDCDC">合并语料库</button>
+<button type="submit"  class="btn btn-default " style="background-color:#DCDCDC">合并语料库</button>
    </div>
 
 
