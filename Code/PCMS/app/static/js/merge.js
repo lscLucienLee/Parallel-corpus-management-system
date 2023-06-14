@@ -240,7 +240,7 @@ function post(){
      json.forEach(function (item, i) {
       if(item.checked==true)
       {var data1=data3;
-      var data2={"name":item.name};
+      var data2={item.name};
       for (var key in data1) {
      data3[key] = filterData[key];
     }
