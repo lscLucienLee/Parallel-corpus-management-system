@@ -60,32 +60,56 @@
         <div id="filename" style="height:168px;width:677px;border:1px solid rgb(108, 117, 125);border-radius: 6px;">
 
         </div>
-
             <label for="file" style="background-color:#DCDCDC;float:right;margin-top:10px" class="borderText">
                 上传文件
                 <input type="file" id="file" name="file" style="display:none" onchange="getfile()">
             </label>
 
+
+
+
+
         <div class="panel panel-default" style="position:relative;width:1200px;margin-top:150px;left:-261.5px">
+
           <div class="panel-heading">翻译自动评价</div>
           <div class="panel-body">
             你选择翻译自动评价操作后，可以将机器翻译结果上传到系统中，系统会将本语料库作为参考，对两者进行比较分析，并给出自动评价结果。
-              <button type="submit" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;float:right" >翻译自动评价</button>
+              <button id="myForm" type="submit" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;float:right" >翻译自动评价(提交文件)</button>
           </div>
         </div>
-    </form>
+        </form>
+
 </div>
 
 
 
 <div style="text-align:center;color: rgb(108, 117, 125);font-family: Inter;font-size: 14px;margin-top:220px">
+    <button type="button" class="btn btn-default dropdown-toggle" style="background-color:#DCDCDC;" onclick="get_eval()">得到分数</button>
     评价结果为：
-    <span style="display:inline-block;border:1px solid rgb(108, 117, 125);border-radius: 6px;height:30px;width:40px">1</span>
+    <span id="eval_id" style="display:inline-block;border:1px solid rgb(108, 117, 125);border-radius: 6px;height:30px;width:40px">0</span>
 </div>
 
 <div class="footer">
 
 </div>
 
+<script>// 假设你有一个 form 表单，id 为 myForm
+    function get_eval() {
+        $.ajax({
+            url: '/align/',
+            type: 'GET',
+            dataType: 'text',
+            success: function (data) {
+                console.log(data);
+                let eval=document.getElementById("eval_id")
+                eval.text(data);
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log("Error: " + errorThrown);
+                // 处理错误
+            }
+        })
+    }
+</script>
 </body>
 </html>

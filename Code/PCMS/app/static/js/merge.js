@@ -14,6 +14,7 @@ res
 
 let table = document.querySelector("table")
 //模拟后台响应的数据
+
 let ul = document.querySelector(".pagination");
 let page_number = 5; //单页浏览的条数
 let Total_pages; //页数
@@ -36,15 +37,17 @@ function clearTable() {
         `
 }
 
+
 window.onload = function () {
-    $.ajax({
-        url: '/path',
+         $.ajax({
+        url: '/merge/data/',
         type: 'GET',
         dataType: 'text',
         success: function (data) {
             console.log(data);
             // 处理响应数据
             let json = JSON.parse(data);
+
             json.forEach(function (item, i) {
                 item.checked = false;
             })
@@ -56,7 +59,7 @@ window.onload = function () {
                             <td>${item.nid}</td>
                             <td>${item.name}</td>
                             <td>${item.time}</td>
-                            <td><input id="${item.nid}" name="${item.nid}" checked=false type="checkbox" style="margin-left: 40px"></td>
+                            <td><input id="${item.nid}" name="${item.nid}"  type="checkbox" style="margin-left: 40px"></td>
                             `
                     tbody.appendChild(tr);
                 }
@@ -74,11 +77,12 @@ window.onload = function () {
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
-        `;
+            `;
             liAll = document.querySelectorAll("li.page_li");
             pageThis = 1; //当前是第几页
             for (let i = 1; i < liAll.length - 1; i++) {
                 liAll[i].onclick = function () {
+                    console.log("上一页："+pageThis);
                     if (pageThis !== 1) {
                         start = (pageThis - 1) * page_number;
                         end = start + page_number - 1;
@@ -91,13 +95,13 @@ window.onload = function () {
                     }
                     json.forEach(function (item, i) {
                         if (i >= start && i <= end) {
-                            item.checked = document.getElementById(item.id).checked;
+                            item.checked = document.getElementById(item.nid).checked;
                         }
                     })
                     // for (let j = 1; j < liAll.length - 1; j++) {
                     // }
                     pageThis = this.id; //获取当前是第几页
-                    console.log(pageThis);
+                    console.log("当前页："+pageThis);
 
                     if (pageThis !== 1) {
                         start = (pageThis - 1) * page_number;
@@ -108,20 +112,32 @@ window.onload = function () {
                     } else {
                         start = 0;
                         end = page_number - 1;
+
                     }
+
                     clearTable();
                     let tbody = document.querySelector("tbody");
                     json.forEach(function (item, i) {
 
                         if (i >= start && i <= end) {
                             let tr = document.createElement("tr");
-                            tr.innerHTML = `
+                            if(item.checked===true){
+                                tr.innerHTML = `
                             <td>${item.nid}</td>
                             <td>${item.name}</td>
                             <td>${item.time}</td>
-                            <td><input id="${item.nid}" name="${item.nid}" checked=false type="checkbox" style="margin-left: 40px"></td>
+                            <td><input id="${item.nid}" name="${item.nid}"  type="checkbox" checked="${item.checked}" style="margin-left: 40px"></td>
                             `
+                            }else {
+                                tr.innerHTML = `
+                            <td>${item.nid}</td>
+                            <td>${item.name}</td>
+                            <td>${item.time}</td>
+                            <td><input id="${item.nid}" name="${item.nid}"  type="checkbox" style="margin-left: 40px"></td>
+                            `
+                            }
                             tbody.appendChild(tr);
+                            console.log(item.checked);
                         }
                     })
                 }
@@ -138,10 +154,11 @@ window.onload = function () {
                     }
                     json.forEach(function (item, i) {
                         if (i >= start && i <= end) {
-                            item.checked = document.getElementById(item.id).checked;
+                            item.checked = document.getElementById(item.nid).checked;
                         }
                     })
                     pageThis--;
+                    console.log(pageThis)
                     start = (pageThis - 1) * page_number;
                     end = start + page_number - 1;
                     if (end > json.length - 1) {
@@ -150,17 +167,27 @@ window.onload = function () {
                     clearTable();
                     let tbody = document.querySelector("tbody");
                     json.forEach(function (item, i) {
+
                         if (i >= start && i <= end) {
                             let tr = document.createElement("tr");
-                            tr.innerHTML = `
+                            if(item.checked===true){
+                                tr.innerHTML = `
                             <td>${item.nid}</td>
                             <td>${item.name}</td>
                             <td>${item.time}</td>
-                            <td><input id="${item.nid}" name="${item.nid}" checked=false type="checkbox" style="margin-left: 40px"></td>
+                            <td><input id="${item.nid}" name="${item.nid}"  type="checkbox" checked="${item.checked}" style="margin-left: 40px"></td>
                             `
+                            }else {
+                                tr.innerHTML = `
+                            <td>${item.nid}</td>
+                            <td>${item.name}</td>
+                            <td>${item.time}</td>
+                            <td><input id="${item.nid}" name="${item.nid}"  type="checkbox" style="margin-left: 40px"></td>
+                            `
+                            }
                             tbody.appendChild(tr);
+                            console.log(item.checked);
                         }
-
                     })
                 } else {
                     alert("当前为第一页")
@@ -181,10 +208,11 @@ window.onload = function () {
                     json.forEach(function (item, i) {
                         if (i >= start && i <= end) {
 
-                            item.checked = document.getElementById(item.id).checked;
+                            item.checked = document.getElementById(item.nid).checked;
                         }
                     })
                     pageThis++;
+                    console.log(pageThis);
                     for (let j = 1; j < liAll.length - 1; j++) {
                     }
                     start = (pageThis - 1) * page_number;
@@ -194,16 +222,27 @@ window.onload = function () {
                     }
                     clearTable();
                     let tbody = document.querySelector("tbody");
-                    json.forEach(function (item, i) {
+                   json.forEach(function (item, i) {
+
                         if (i >= start && i <= end) {
                             let tr = document.createElement("tr");
-                            tr.innerHTML = `
+                            if(item.checked===true){
+                                tr.innerHTML = `
                             <td>${item.nid}</td>
                             <td>${item.name}</td>
                             <td>${item.time}</td>
-                            <td><input id="${item.nid}" name="${item.nid}" checked=false type="checkbox" style="margin-left: 40px"></td>
+                            <td><input id="${item.nid}" name="${item.nid}"  type="checkbox" checked="${item.checked}" style="margin-left: 40px"></td>
                             `
+                            }else {
+                                tr.innerHTML = `
+                            <td>${item.nid}</td>
+                            <td>${item.name}</td>
+                            <td>${item.time}</td>
+                            <td><input id="${item.nid}" name="${item.nid}"  type="checkbox" style="margin-left: 40px"></td>
+                            `
+                            }
                             tbody.appendChild(tr);
+                            console.log(item.checked);
                         }
                     })
                 } else {
@@ -212,15 +251,14 @@ window.onload = function () {
             }
 
         },
-        error: function (xhr, textStatus, errorThrown) {
+    error: function (xhr, textStatus, errorThrown) {
             console.log("Error: " + errorThrown);
             // 处理错误
         }
     });
 }
-
-function post(){
-    if (pageThis > 1) {
+function post(){ var data0=[];
+            if (pageThis > 1) {
         start = (pageThis - 1) * page_number;
         end = start + page_number - 1;
         if (end > json.length - 1) { //如果当页数据结束值大于总数据条数下标的值则赋值为总数据条数最大下标值
@@ -230,25 +268,23 @@ function post(){
         start = 0;
         end = page_number - 1;
     }
-    json.forEach(function (item, i) {
-        if (i >= start && i <= end) {
-
-            item.checked = document.getElementById(item.nid).checked;
-        }
-    })
-    var data0=[];
-     json.forEach(function (item, i) {
-      if(item.checked==true)
-      { data0.push(item.name);
+            json.forEach(function (item, i) {
+                        if (i >= start && i <= end) {
+                            item.checked = document.getElementById(item.nid).checked;
+                        }
+                        if(item.checked===true){
+                            data0.update(item.name)
+                        }
+                    })
 
 
-        }
-   $.ajax({
-            url: '/index/', //后端地址
+
+           $.ajax({
+            url: '/merge/corpus_name/', //后端地址
             type: 'POST',       //提交方式
-            data:  data0
+            data: data0
             ,
-            dataType: 'text',       //规定请求成功后返回的数据
+            dataType: "text",       //规定请求成功后返回的数据
             success: function (data) {
                 //请求成功之后进入该方法，data为成功后返回的数据
             },
@@ -258,5 +294,6 @@ function post(){
         });
 
 
-   }
-}
+     }
+
+
