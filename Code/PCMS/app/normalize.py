@@ -20,7 +20,8 @@ class TextNormalizer:
                 writer.writerow(row)
 
     def normalize(self, text):
-        normalized_text = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode('utf-8')
+        normalized_text = unicodedata.normalize('NFKD', text)
+        normalized_text = normalized_text.encode('ascii', 'ignore').decode('unicode_escape')
         return normalized_text
 
     def process_csv(self):
